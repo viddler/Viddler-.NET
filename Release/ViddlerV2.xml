@@ -1,0 +1,3534 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ViddlerV2</name>
+    </assembly>
+    <members>
+        <member name="T:Viddler.Videos.Upload">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.upload
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.Video">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.DataObjectBase">
+            <summary>
+            Represents a base for data objects returned by Viddler API remote methods.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.DataObjectBase.Serialize">
+            <summary>
+            When overriden in derived class, returns XML representation of the current object.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.DataObjectBase.ToString">
+            <summary>
+            When overriden in derived class, returns XML representation of the current object.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.DataObjectBase.Warnings">
+            <summary>
+            Corresponds to the remote Viddler API field "warnings"
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.Video.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Title">
+            <summary>
+            Corresponds to the remote Viddler API field "title"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Description">
+            <summary>
+            Corresponds to the remote Viddler API field "description"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Url">
+            <summary>
+            Corresponds to the remote Viddler API field "url"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.ThumbnailUrl">
+            <summary>
+            Corresponds to the remote Viddler API field "thumbnail_url"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Status">
+            <summary>
+            Corresponds to the remote Viddler API field "status"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Author">
+            <summary>
+            Corresponds to the remote Viddler API field "author"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Length">
+            <summary>
+            Corresponds to the remote Viddler API field "length"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.PermaLink">
+            <summary>
+            Corresponds to the remote Viddler API field "permalink"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Html5VideoSource">
+            <summary>
+            Corresponds to the remote Viddler API field "html5_video_source"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.EmbedCode">
+            <summary>
+            Corresponds to the remote Viddler API field "embed_code"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.ViewCount">
+            <summary>
+            Corresponds to the remote Viddler API field "view_count"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.UploadTime">
+            <summary>
+            Corresponds to the remote Viddler API field "upload_time"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.MadePublicTime">
+            <summary>
+            Corresponds to the remote Viddler API field "made_public_time"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Favorite">
+            <summary>
+            Corresponds to the remote Viddler API field "favorite"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.CommentCount">
+            <summary>
+            Corresponds to the remote Viddler API field "comment_count"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.AgeLimit">
+            <summary>
+            Corresponds to the remote Viddler API field "age_limit"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Files">
+            <summary>
+            Corresponds to the remote Viddler API field "files"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Permission">
+            <summary>
+            Corresponds to the remote Viddler API field "permissions"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Tags">
+            <summary>
+            Corresponds to the remote Viddler API field "tags"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Video.Comments">
+            <summary>
+            Corresponds to the remote Viddler API field "comments"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.GetEmbedCodeTypes">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getEmbedCodeTypes
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoEmbedCodeTypeList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.VideoEmbedCodeTypeList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoEmbedCodeTypeList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "embed_code_types"
+            </summary>
+        </member>
+        <member name="T:Viddler.ViddlerRequestErrorEventArgs">
+            <summary>
+            Provides data for the generic EventHandler event.
+            </summary>
+        </member>
+        <member name="T:Viddler.ViddlerRequestEventArgs">
+            <summary>
+            Provides data for the generic EventHandler event.
+            </summary>
+        </member>
+        <member name="F:Viddler.ViddlerRequestEventArgs.requestContractType">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerRequestEventArgs.requestParameters">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerRequestEventArgs.isRequestFile">
+            <summary/>
+        </member>
+        <member name="M:Viddler.ViddlerRequestEventArgs.#ctor(System.Type,System.Collections.Specialized.StringDictionary,System.Boolean)">
+            <summary>
+            Initializes a new instance of ViddlerRequestEventArgs class.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestEventArgs.ContractType">
+            <summary>
+            Gets a type of contract class used during a HTTP request.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestEventArgs.Parameters">
+            <summary>
+            Gets a collection of query parameters used during a HTTP request.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestEventArgs.IsRequestFile">
+            <summary>
+            Gets a value indicating whether a file was sent during a HTTP request.
+            </summary>
+        </member>
+        <member name="F:Viddler.ViddlerRequestErrorEventArgs.exception">
+            <summary/>
+        </member>
+        <member name="M:Viddler.ViddlerRequestErrorEventArgs.#ctor(System.Type,System.Collections.Specialized.StringDictionary,System.Boolean,System.Exception)">
+            <summary>
+            Initializes a new instance of ViddlerRequestErrorEventArgs class.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestErrorEventArgs.Exception">
+            <summary>
+            Gets a system exception thrown during a HTTP request.
+            </summary>
+        </member>
+        <member name="T:Viddler.Groups.GetByTag">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.groups.getByTag
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.GroupList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.GroupList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.GroupList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.GroupList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.GroupList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "user_list"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoStatus">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoStatus.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoStatus.Ready">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "ready"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoStatus.NotReady">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "processing"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoStatus.Deleted">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "deleted"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoPermission">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.VideoPermission.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermission.Level">
+            <summary>
+            Corresponds to the remote Viddler API field "level"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermission.Users">
+            <summary>
+            Corresponds to the remote Viddler API field "users"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermission.Lists">
+            <summary>
+            Corresponds to the remote Viddler API field "lists"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.VideoList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoList.Sort">
+            <summary>
+            Corresponds to the remote Viddler API field "sort"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "video_list"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.UnixTimeStamp">
+            <summary>
+            Represents an UNIX time stamp using Unix Epoch as a base time.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UnixTimeStamp.UnixEpoch">
+            <summary>
+            Stores Unix Epoch base value equal to 1970-01-01 00:00:00.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UnixTimeStamp.TimeStamp">
+            <summary>
+            Represent a Unix time stamp value.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of UnixTimeStamp class.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.#cctor">
+            <summary/>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.GetSchema">
+            <summary>
+            Implementation of IXmlSerializable method used for serialization/deserialization.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Implementation of IXmlSerializable method used for deserialization.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Implementation of IXmlSerializable method used for serialization.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.CompareTo(System.Double)">
+            <summary>
+            Compares this instance to a specified object and returns an indication of their relative values.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.CompareTo(System.DateTime)">
+            <summary>
+            Compares this instance to a specified object and returns an indication of their relative values.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.Equals(System.DateTime)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified DateTime value.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.Equals(System.Double)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified double value.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UnixTimeStamp.ToString">
+            <summary>
+            Converts the time stamp value of this instance to its equivalent string representation.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UnixTimeStamp.DateTime">
+            <summary>
+            Represent an Unix time stamp value using DateTime structure.
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.SetThumbnailFile">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.setThumbnail
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.SetPermaLink">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.setPermalink
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.GetPartner">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getPartner
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.PartnerVideoList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.PartnerVideoList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PartnerVideoList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PartnerVideoList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PartnerVideoList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "partner_videos"
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.Subscribe">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.subscribe
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.SubscribedList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.SubscribedList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.SubscribedList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.SubscribedList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.SubscribedList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "subscribed_users"
+            </summary>
+        </member>
+        <member name="T:Viddler.Groups.GetVideos">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.groups.getVideos
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.GroupVideoList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.GroupVideoList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.GroupVideoList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.GroupVideoList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.GroupVideoList.Group">
+            <summary>
+            Corresponds to the remote Viddler API field "group"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.GroupVideoList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "group_videos"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.UploadEndPoint">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UploadEndPoint.Url">
+            <summary>
+            Corresponds to the remote Viddler API field "endpoint"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UploadEndPoint.Token">
+            <summary>
+            Corresponds to the remote Viddler API field "token"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.Group">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.CreatedAt">
+            <summary>
+            Corresponds to the remote Viddler API field "created_at"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.CreatedBy">
+            <summary>
+            Corresponds to the remote Viddler API field "created_by"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.Name">
+            <summary>
+            Corresponds to the remote Viddler API field "name"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.Description">
+            <summary>
+            Corresponds to the remote Viddler API field "description"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.Tags">
+            <summary>
+            Corresponds to the remote Viddler API field "tags"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.Url">
+            <summary>
+            Corresponds to the remote Viddler API field "url"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.Members">
+            <summary>
+            Corresponds to the remote Viddler API field "members"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Group.Videos">
+            <summary>
+            Corresponds to the remote Viddler API field "videos"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.FriendList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.FriendList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendList.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendList.Name">
+            <summary>
+            Corresponds to the remote Viddler API field "name"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "users"
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.GetSettings">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.getSettings
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.UserSettings">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.ShowAccount">
+            <summary>
+            Corresponds to the remote Viddler API field "show_account"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.TaggingEnabled">
+            <summary>
+            Corresponds to the remote Viddler API field "tagging_enabled"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.CommentingEnabled">
+            <summary>
+            Corresponds to the remote Viddler API field "commenting_enabled"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.ShowRelatedVideos">
+            <summary>
+            Corresponds to the remote Viddler API field "show_related_videos"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.EmbeddingEnabled">
+            <summary>
+            Corresponds to the remote Viddler API field "embedding_enabled"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.ClickingThroughEnabled">
+            <summary>
+            Corresponds to the remote Viddler API field "clicking_through_enabled"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.EmailThisEnabled">
+            <summary>
+            Corresponds to the remote Viddler API field "email_this_enabled"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.TrackbacksEnabled">
+            <summary>
+            Corresponds to the remote Viddler API field "trackbacks_enabled"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.Favorites">
+            <summary>
+            Corresponds to the remote Viddler API field "favorites"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSettings.EmbedCodeType">
+            <summary>
+            Corresponds to the remote Viddler API field "embed_code_type"
+            </summary>
+        </member>
+        <member name="T:Viddler.Playlists.RemoveVideo">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.removeVideo
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.PlaylistVideoList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.PlaylistVideoList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistVideoList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistVideoList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistVideoList.Playlist">
+            <summary>
+            Corresponds to the remote Viddler API field "playlist"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistVideoList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "videos_list"
+            </summary>
+        </member>
+        <member name="T:Viddler.Groups.AddVideo">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.groups.addVideo
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoPermissionLevel">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoPermissionLevel.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoPermissionLevel.Private">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "private"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoPermissionLevel.Shared">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "shared"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoPermissionLevel.SharedAll">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "shared_all"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoPermissionLevel.Public">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "public"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.User">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.UserName">
+            <summary>
+            Corresponds to the remote Viddler API field "username"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.FirstName">
+            <summary>
+            Corresponds to the remote Viddler API field "first_name"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.LastName">
+            <summary>
+            Corresponds to the remote Viddler API field "last_name"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.AboutMe">
+            <summary>
+            Corresponds to the remote Viddler API field "about_me"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.Avatar">
+            <summary>
+            Corresponds to the remote Viddler API field "avatar"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.Age">
+            <summary>
+            Corresponds to the remote Viddler API field "age"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.VideoUploadCount">
+            <summary>
+            Corresponds to the remote Viddler API field "video_upload_count"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.VideoWatchCount">
+            <summary>
+            Corresponds to the remote Viddler API field "video_watch_count"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.HomePage">
+            <summary>
+            Corresponds to the remote Viddler API field "homepage"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.Gender">
+            <summary>
+            Corresponds to the remote Viddler API field "gender"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.Company">
+            <summary>
+            Corresponds to the remote Viddler API field "company"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.City">
+            <summary>
+            Corresponds to the remote Viddler API field "city"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.FriendCount">
+            <summary>
+            Corresponds to the remote Viddler API field "friend_count"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.User.FavoriteVideoCount">
+            <summary>
+            Corresponds to the remote Viddler API field "favorite_video_count"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.PlaylistVisibilityType">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistVisibilityType.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistVisibilityType.Private">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "private"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistVisibilityType.Shared">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "shared"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistVisibilityType.Public">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "public"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.PrepareUpload">
+             <summary>
+            Provides request parameters for Viddler API remote method:  viddler.videos.prepareUpload
+             </summary>
+             <remarks>
+             This class is not intended to be used in your code in any way.
+             </remarks>
+        </member>
+        <member name="T:Viddler.Videos.GetFeatured">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getFeatured
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.FeaturedVideoList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.FeaturedVideoList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FeaturedVideoList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FeaturedVideoList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FeaturedVideoList.Sort">
+            <summary>
+            Corresponds to the remote Viddler API field "type"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FeaturedVideoList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "user_list"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.Favorite">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.favorite
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.ViddlerResponseSuccess">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method "general success" result.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerResponseSuccess.IsSuccess">
+            <summary>
+            isSuccess
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.DelFile">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.delFile
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.Delete">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.delete
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.ViddlerMethodAttribute">
+            <summary>
+            Provides request parameters for Viddler API remote methods and contros XML serialization of the attribute target as an XML root element.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerMethodAttribute.#ctor">
+            <summary>
+            Initializes a new instance of ViddlerMethodAttribute class.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerMethodAttribute.MethodName">
+            <summary>
+            Gets or sets remote Viddler API method name.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerMethodAttribute.IsSecure">
+            <summary>
+            Gets or sets a value indicating whether to use SSL protocol during the communication with remote Viddler API method.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerMethodAttribute.IsSessionRequired">
+            <summary>
+            Gets or sets a value indicating whether the session identifier is required during the communication with remote Viddler API method.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerMethodAttribute.RequestType">
+            <summary>
+            Gets or sets a value representing HTTP method type used during the communication with remote Viddler API method.
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.GetProfile">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.getProfile
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Playlists.Delete">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.delete
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.PlaylistList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.PlaylistList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "playlists"
+            </summary>
+        </member>
+        <member name="T:Viddler.Groups.RemoveVideo">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.groups.removeVideo
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Groups.GetByUser">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.groups.getByUser
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoComment">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Status">
+            <summary>
+            Corresponds to the remote Viddler API field "status"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Extension">
+            <summary>
+            Corresponds to the remote Viddler API field "ext"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Type">
+            <summary>
+            Corresponds to the remote Viddler API field "type"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Width">
+            <summary>
+            Corresponds to the remote Viddler API field "width"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Height">
+            <summary>
+            Corresponds to the remote Viddler API field "height"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Size">
+            <summary>
+            Corresponds to the remote Viddler API field "size"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Url">
+            <summary>
+            Corresponds to the remote Viddler API field "url"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Html5VideoSource">
+            <summary>
+            Corresponds to the remote Viddler API field "html5_video_source"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Source">
+            <summary>
+            Corresponds to the remote Viddler API field "source"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.ProfileId">
+            <summary>
+            Corresponds to the remote Viddler API field "profile_id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.VideoId">
+            <summary>
+            Corresponds to the remote Viddler API field "video_id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.EncodingProgress">
+            <summary>
+            Corresponds to the remote Viddler API field "encoding_progress"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.EncodingStatus">
+            <summary>
+            Corresponds to the remote Viddler API field "encoding_status"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.Flash">
+            <summary>
+            Corresponds to the remote Viddler API field "flash"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.IPhone">
+            <summary>
+            Corresponds to the remote Viddler API field "iphone"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.IPad">
+            <summary>
+            Corresponds to the remote Viddler API field "ipad"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoComment.ITunes">
+            <summary>
+            Corresponds to the remote Viddler API field "itunes"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.VideosNamespaceWrapper">
+            <summary>
+            Provides access to Viddler API methods located in viddler.videos namespace.
+            </summary>
+            <remarks>Visit <a href="http://developers.viddler.com/" target="_blank">http://developers.viddler.com/</a> to get the full overview of methods contained in this class.</remarks>
+        </member>
+        <member name="T:Viddler.ViddlerNamespaceProvider">
+            <summary>
+            When inherited in a derived class, provides access to Viddler API methods located in the specified Viddler API namespace.
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="F:Viddler.ViddlerNamespaceProvider.service">
+            <summary/>
+        </member>
+        <member name="M:Viddler.ViddlerNamespaceProvider.#ctor(Viddler.ViddlerService)">
+            <summary>
+            Initializes a new instance of ViddlerNamespaceProvider class.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerNamespaceProvider.Service">
+            <summary>
+            Provides access to an instance of ViddlerService in derived classes.
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.#ctor(Viddler.ViddlerService)">
+            <summary>
+            Initializes a new instance of VideosNamespaceWrapper class.
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.Upload(System.String,System.String,System.String,System.Nullable{System.Boolean},System.String,System.IO.Stream,System.Boolean)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.upload
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.Upload(System.String,System.String,System.String,System.Nullable{System.Boolean},System.String,System.Boolean)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.upload
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.PrepareUpload">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.prepareUpload
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetByUser(System.String,System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Viddler.Data.VideoListSortType})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetByUser(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetByUser(System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Viddler.Data.VideoListSortType})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetByUser">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetByTag(System.String,System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Viddler.Data.VideoListSortType})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getByTag
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetByTag(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getByTag
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetDetails(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetDetailsById(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetDetailsByUrl(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetDetailsByUrl(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetFavorites(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getFavorites
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetFavorites(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getFavorites
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetFavorites(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getFavorites
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetFavorites">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getFavorites
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetEmbedCodeTypes">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getEmbedCodeTypes
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetEmbedCode(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getEmbedCode
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetFeatured(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Viddler.Data.FeaturedVideoListSortType})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getFeatured
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetFeatured">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getFeatured
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetPartner(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getPartner
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetPartner">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getPartner
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetFriendsVideos(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getFriendsVideos
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetFriendsVideos">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getFriendsVideos
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetRecordToken">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getRecordToken
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetSubscribed(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getSubscribed
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetSubscribed">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getSubscribed
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.GetAdsStatus(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.getAdsStatus
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.SetPermaLink(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.setPermalink
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.Favorite(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.favorite
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.Unfavorite(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.unfavorite
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.SetDetails(System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.Nullable{Viddler.Data.VideoPermissionLevel},System.String,System.String,System.Nullable{Viddler.Data.VideoPermissionLevel},System.String,System.Nullable{Viddler.Data.VideoPermissionLevel},System.String,System.Nullable{Viddler.Data.VideoPermissionLevel},System.String,System.Nullable{Viddler.Data.VideoPermissionLevel},System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.setDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.SetDetails(System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Boolean})">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.setDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.Delete(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.delete
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.DelFile(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.delFile
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.EnableAds(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.enableAds
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.DisableAds(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.disableAds
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.SetThumbnail(System.String,System.Boolean)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.setThumbnail
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.SetThumbnail(System.String,System.IO.Stream)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.setThumbnail
+            </summary>
+        </member>
+        <member name="M:Viddler.Videos.VideosNamespaceWrapper.SetThumbnail(System.String,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.videos.setThumbnail
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.GetByTag">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getByTag
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Users.UsersNamespaceWrapper">
+            <summary>
+            Provides access to Viddler API methods located in viddler.users namespace.
+            </summary>
+            <remarks>Visit <a href="http://developers.viddler.com/" target="_blank">http://developers.viddler.com/</a> to get the full overview of methods contained in this class.</remarks>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.#ctor(Viddler.ViddlerService)">
+            <summary>
+            Initializes a new instance of UsersNamespaceWrapper class.
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.Auth(System.String,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.auth
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.Search(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.search
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.Search(System.String,System.Nullable{Viddler.Data.UserListType})">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.search
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.Search(System.String,System.Nullable{Viddler.Data.UserListType},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.search
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.GetProfile(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.getProfile
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.GetStats">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.getStats
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.SetProfile(System.String,System.String,System.Nullable{Viddler.Data.UserGender},System.String,System.String,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.setProfile
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.SetProfile(System.String,System.String,System.Nullable{Viddler.Data.UserGender},System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.setProfile
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.GetFriends">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.getFriends
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.SendFriendRequest(System.String,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.sendFriendRequest
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.RemoveFriend(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.removeFriend
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.GetFriendRequests">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.getFriendRequests
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.AcceptFriendRequest(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.acceptFriendRequest
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.IgnoreFriendRequest(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.ignoreFriendRequest
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.GetSettings">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.getSettings
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.GetSubscribed(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.getSubscribed
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.GetSubscribed">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.getSubscribed
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.Subscribe(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.subscribe
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.Unsubscribe(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.unsubscribe
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.Register(System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.register
+            </summary>
+        </member>
+        <member name="M:Viddler.Users.UsersNamespaceWrapper.SetSettings(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.users.setSettings
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.SetProfile">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.getProfile
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Users.GetSubscribed">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.getSubscribed
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Encoding.GetStatus">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.encoding.getStatus
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.EncodingStatus">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.EncodingStatus.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingStatus.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "files"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoFile">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Status">
+            <summary>
+            Corresponds to the remote Viddler API field "status"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Extension">
+            <summary>
+            Corresponds to the remote Viddler API field "ext"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Type">
+            <summary>
+            Corresponds to the remote Viddler API field "type"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Width">
+            <summary>
+            Corresponds to the remote Viddler API field "width"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Height">
+            <summary>
+            Corresponds to the remote Viddler API field "height"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Size">
+            <summary>
+            Corresponds to the remote Viddler API field "size"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Url">
+            <summary>
+            Corresponds to the remote Viddler API field "url"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Html5VideoSource">
+            <summary>
+            Corresponds to the remote Viddler API field "html5_video_source"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Source">
+            <summary>
+            Corresponds to the remote Viddler API field "source"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.ProfileId">
+            <summary>
+            Corresponds to the remote Viddler API field "profile_id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.VideoId">
+            <summary>
+            Corresponds to the remote Viddler API field "video_id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.EncodingProgress">
+            <summary>
+            Corresponds to the remote Viddler API field "encoding_progress"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.EncodingStatus">
+            <summary>
+            Corresponds to the remote Viddler API field "encoding_status"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.Flash">
+            <summary>
+            Corresponds to the remote Viddler API field "flash"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.IPhone">
+            <summary>
+            Corresponds to the remote Viddler API field "iphone"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.IPad">
+            <summary>
+            Corresponds to the remote Viddler API field "ipad"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoFile.ITunes">
+            <summary>
+            Corresponds to the remote Viddler API field "itunes"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoEmbedCodeType">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoEmbedCodeType.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoEmbedCodeType.Name">
+            <summary>
+            Corresponds to the remote Viddler API field "name"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.SetDetails">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.setDetails
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.GetDetails">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getDetails
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Users.Unsubscribe">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.unsubscribe
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.FriendVideoList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.FriendVideoList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendVideoList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendVideoList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendVideoList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "friends_videos"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.ApiInfo">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.ApiInfo.Version">
+            <summary>
+            Corresponds to the remote Viddler API field "version"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.GetByUser">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getByUser
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.ViddlerResponseError">
+            <summary>
+            Represents the Viddler API error data sent by a remote server during HTTP request.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerResponseError.Code">
+            <summary>
+            code
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerResponseError.Description">
+            <summary>
+            description
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerResponseError.Details">
+            <summary>
+            details
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.SendFriendRequest">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.sendFriendRequest
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Playlists.GetDetails">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.getDetails
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Groups.GroupsNamespaceWrapper">
+            <summary>
+            Provides access to Viddler API methods located in viddler.groups namespace.
+            </summary>
+            <remarks>Visit <a href="http://developers.viddler.com/" target="_blank">http://developers.viddler.com/</a> to get the full overview of methods contained in this class.</remarks>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.#ctor(Viddler.ViddlerService)">
+            <summary>
+            Initializes a new instance of GroupsNamespaceWrapper class.
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetByUser(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetByUser(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetByUser">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetByTag(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getByTag
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetByTag(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getByTag
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetByVideo(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getByVideo
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetByVideo(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getByTag
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetVideos(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getVideos
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.GetVideos(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.getVideos
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.AddVideo(System.String,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.addVideo
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.RemoveVideo(System.String,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.removeVideo
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.Join(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.join
+            </summary>
+        </member>
+        <member name="M:Viddler.Groups.GroupsNamespaceWrapper.Leave(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.groups.leave
+            </summary>
+        </member>
+        <member name="T:Viddler.Encoding.SetOptions">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.encoding.setOptions
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.EncodingOptions">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.EncodingOptions.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingOptions.RespectSourceDimensions">
+            <summary>
+            Corresponds to the remote Viddler API field "respect_source_dimensions"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingOptions.PreserveSourceFlvFiles">
+            <summary>
+            Corresponds to the remote Viddler API field "preserve_source_flv_files"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingOptions.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "profiles"
+            </summary>
+        </member>
+        <member name="T:Viddler.Encoding.GetOptions">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.encoding.getOptions
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoFileStatus">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileStatus.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileStatus.New">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "ready"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileStatus.Ready">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "ready"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileStatus.Processing">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "processing"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileStatus.Deleted">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "deleted"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileStatus.Error">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "deleted"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoFileSourceStatus">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileSourceStatus.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileSourceStatus.NotAvailable">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "na"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileSourceStatus.On">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "on"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileSourceStatus.Off">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "off"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.UserSession">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserSession.SessionId">
+            <summary>
+            Corresponds to the remote Viddler API field "sessionid"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.RecordToken">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.RecordToken.Value">
+            <summary>
+            Corresponds to the remote Viddler API field "value"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.Playlist">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Playlist.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Playlist.Name">
+            <summary>
+            Corresponds to the remote Viddler API field "name"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Playlist.Type">
+            <summary>
+            Corresponds to the remote Viddler API field "type"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Playlist.Visibility">
+            <summary>
+            Corresponds to the remote Viddler API field "visibility"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.FeaturedVideoListSortType">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.FeaturedVideoListSortType.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.FeaturedVideoListSortType.DateDescending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-desc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.FeaturedVideoListSortType.DateAscending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-asc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.FeaturedVideoListSortType.UploadedDescending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-desc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.FeaturedVideoListSortType.UploadedAscending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-asc"
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.AcceptFriendRequest">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.acceptFriendRequest
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.FriendRequestList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.FriendRequestList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendRequestList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "request"
+            </summary>
+        </member>
+        <member name="T:Viddler.Playlists.SetDetails">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.setDetails
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Encoding.Cancel">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.encoding.cancel
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoAdsStatusList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.VideoAdsStatusList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoAdsStatusList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "video_ads_status"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.GetEmbedCode">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getEmbedCode
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoEmbedCode">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoEmbedCode.VideoId">
+            <summary>
+            Corresponds to the remote Viddler API field "video_id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoEmbedCode.Code">
+            <summary>
+            Corresponds to the remote Viddler API field "embed_code"
+            </summary>
+        </member>
+        <member name="T:Viddler.ViddlerRequestException">
+            <summary>
+            The exception which occurs when ViddlerService throws an error during a HTTP request.
+            </summary>
+        </member>
+        <member name="F:Viddler.ViddlerRequestException.code">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerRequestException.details">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerRequestException.description">
+            <summary/>
+        </member>
+        <member name="M:Viddler.ViddlerRequestException.#ctor(Viddler.ViddlerResponseError,System.Exception)">
+            <summary>
+            Initializes a new instance of ViddlerRequestException class.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestException.Code">
+            <summary>
+            Gets a code of Viddler error.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestException.Details">
+            <summary>
+            Gets details of Viddler error.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestException.Description">
+            <summary>
+            Gets a description of Viddler error.
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.Register">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.register
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Users.IgnoreFriendRequest">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.ignoreFriendRequest
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Users.GetFriends">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.getFriends
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.Friends">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.Friends.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Friends.Users">
+            <summary>
+            Corresponds to the remote Viddler API field "users"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Friends.Lists">
+            <summary>
+            Corresponds to the remote Viddler API field "lists"
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.Auth">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.auth
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Groups.Join">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.groups.join
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.UserStatsUsers">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsUsers.Friends">
+            <summary>
+            Corresponds to the remote Viddler API field "friends"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsUsers.Followers">
+            <summary>
+            Corresponds to the remote Viddler API field "followers"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsUsers.Following">
+            <summary>
+            Corresponds to the remote Viddler API field "following"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.UserList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UserList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserList.Type">
+            <summary>
+            Corresponds to the remote Viddler API field "type"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "user_list"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.SubscribedVideoList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.SubscribedVideoList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.SubscribedVideoList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.SubscribedVideoList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.SubscribedVideoList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "subscribed_videos"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.Warning">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.Warning.Description">
+            <summary>
+            Corresponds to the remote Viddler API field "description"
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.RemoveFriend">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.removeFriend
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Users.GetFriendRequests">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.getFriendRequests
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Playlists.MoveVideo">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.moveVideo
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Groups.GetByVideo">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.groups.getByVideo
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.UserStats">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.UserStats.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStats.Comments">
+            <summary>
+            Corresponds to the remote Viddler API field "comments"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStats.Usage">
+            <summary>
+            Corresponds to the remote Viddler API field "usage"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStats.Users">
+            <summary>
+            Corresponds to the remote Viddler API field "users"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStats.Videos">
+            <summary>
+            Corresponds to the remote Viddler API field "videos"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.PlaylistType">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistType.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistType.Regular">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "regular"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistType.Smart">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "smart"
+            </summary>
+        </member>
+        <member name="T:Viddler.Api.GetInfo">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.api.getInfo
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.GetSubscribed">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getSubscribed
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Playlists.PlaylistsNamespaceWrapper">
+            <summary>
+            Provides access to Viddler API methods located in viddler.playlists namespace.
+            </summary>
+            <remarks>Visit <a href="http://developers.viddler.com/" target="_blank">http://developers.viddler.com/</a> to get the full overview of methods contained in this class.</remarks>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.#ctor(Viddler.ViddlerService)">
+            <summary>
+            Initializes a new instance of PlaylistsNamespaceWrapper class.
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.GetDetails(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.getDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.GetDetails(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.getDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.GetByUser(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.GetByUser(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.GetByUser">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.getByUser
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.List(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.list
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.List">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.list
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.AddVideo(System.String,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.addVideo
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.RemoveVideo(System.String,System.Int32)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.removeVideo
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.MoveVideo(System.String,System.Int32,System.Int32)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.moveVideo
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.Delete(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.delete
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.Create(System.String,Viddler.Data.PlaylistType,Viddler.Data.PlaylistVisibilityType,System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.create
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.Create(System.String,Viddler.Data.PlaylistType,Viddler.Data.PlaylistVisibilityType)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.create
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.Create(System.String,System.Nullable{Viddler.Data.PlaylistType},System.Nullable{Viddler.Data.PlaylistVisibilityType},System.String,System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Viddler.Data.VideoListSortType})">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.create
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.SetDetails(System.String,System.String,System.Nullable{Viddler.Data.PlaylistVisibilityType},System.String,System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Viddler.Data.VideoListSortType})">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.setDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.SetDetails(System.String,System.String,System.Nullable{Viddler.Data.PlaylistVisibilityType},System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.setDetails
+            </summary>
+        </member>
+        <member name="M:Viddler.Playlists.PlaylistsNamespaceWrapper.SetDetails(System.String,System.String,Viddler.Data.PlaylistVisibilityType)">
+            <summary>
+            Calls the remote Viddler API method: viddler.playlists.setDetails
+            </summary>
+        </member>
+        <member name="T:Viddler.Groups.Leave">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.groups.leave
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Api.ApiNamespaceWrapper">
+            <summary>
+            Provides access to Viddler API methods located in viddler.api namespace.
+            </summary>
+            <remarks>Visit <a href="http://developers.viddler.com/" target="_blank">http://developers.viddler.com/</a> to get the full overview of methods contained in this class.</remarks>
+        </member>
+        <member name="M:Viddler.Api.ApiNamespaceWrapper.#ctor(Viddler.ViddlerService)">
+            <summary>
+            Initializes a new instance of ApiNamespaceWrapper class.
+            </summary>
+        </member>
+        <member name="M:Viddler.Api.ApiNamespaceWrapper.Echo(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.api.echo
+            </summary>
+        </member>
+        <member name="M:Viddler.Api.ApiNamespaceWrapper.GetVersion">
+            <summary>
+            Calls the remote Viddler API method: viddler.api.getInfo
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.SetThumbnail">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.setThumbnail
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.GetFavorites">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getFavorites
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.FavoriteList">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.FavoriteList.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FavoriteList.Page">
+            <summary>
+            Corresponds to the remote Viddler API field "page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FavoriteList.PerPage">
+            <summary>
+            Corresponds to the remote Viddler API field "per_page"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FavoriteList.Items">
+            <summary>
+            Corresponds to the remote Viddler API field "favorite_videos"
+            </summary>
+        </member>
+        <member name="T:Viddler.ViddlerConfigurationSection">
+            <summary>
+            Section handler for Viddler service configuration settings.
+            </summary>
+            <example>
+            Configuration of the section handler in .config file:
+            <code>
+            <![CDATA[
+            <?xml version="1.0"?>
+            <configuration>
+              <configSections>
+            	  <section name="viddlerV2" type="Viddler.ViddlerConfigurationSection, ViddlerV2" />
+              </configSections>
+              <viddlerV2
+                apiKey="xxxxxxxxxxxxxxxxxxxx"
+                baseUrl="http://api.viddler.com/api/v2/"
+                secureBaseUrl="https://api.viddler.com/api/v2/"
+                enableSsl="true" />
+            </configuration>
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="P:Viddler.ViddlerConfigurationSection.BaseUrl">
+            <summary>
+            Gets or sets a base HTTP URL for the remote Viddler API methods.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerConfigurationSection.SecureBaseUrl">
+            <summary>
+            Gets or sets a base HTTPS URL for the remote Viddler API methods.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerConfigurationSection.ApiKey">
+            <summary>
+            Gets or sets Viddler API key.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerConfigurationSection.EnableSsl">
+            <summary>
+            Gets or sets a value indicating whether to use SecureBaseUrl.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerConfigurationSection.Instance">
+            <summary>
+            Gets an instance of the current configuration settings.
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.SetSettings">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.setSettings
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Users.GetStats">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.getStats
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Playlists.GetByUser">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.getByUser
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Encoding.EncodingNamespaceWrapper">
+            <summary>
+            Provides access to Viddler API methods located in viddler.encoding namespace.
+            </summary>
+            <remarks>Visit <a href="http://developers.viddler.com/" target="_blank">http://developers.viddler.com/</a> to get the full overview of methods contained in this class.</remarks>
+        </member>
+        <member name="M:Viddler.Encoding.EncodingNamespaceWrapper.#ctor(Viddler.ViddlerService)">
+            <summary>
+            Initializes a new instance of EncodingNamespaceWrapper class.
+            </summary>
+        </member>
+        <member name="M:Viddler.Encoding.EncodingNamespaceWrapper.GetStatus">
+            <summary>
+            Calls the remote Viddler API method: viddler.encoding.getStatus
+            </summary>
+        </member>
+        <member name="M:Viddler.Encoding.EncodingNamespaceWrapper.Encode(System.String,System.Int32)">
+            <summary>
+            Calls the remote Viddler API method: viddler.encoding.encode
+            </summary>
+        </member>
+        <member name="M:Viddler.Encoding.EncodingNamespaceWrapper.Cancel(System.String)">
+            <summary>
+            Calls the remote Viddler API method: viddler.encoding.cancel
+            </summary>
+        </member>
+        <member name="M:Viddler.Encoding.EncodingNamespaceWrapper.GetOptions">
+            <summary>
+            Calls the remote Viddler API method: viddler.encoding.getOptions
+            </summary>
+        </member>
+        <member name="M:Viddler.Encoding.EncodingNamespaceWrapper.SetOptions(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Calls the remote Viddler API method: viddler.encoding.setOptions
+            </summary>
+        </member>
+        <member name="M:Viddler.Encoding.EncodingNamespaceWrapper.SetOptions(System.Int32,System.Nullable{System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Calls the remote Viddler API method: viddler.encoding.setOptions
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoFileEncodingStatus">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileEncodingStatus.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileEncodingStatus.New">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "new"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileEncodingStatus.Encoding">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "encoding"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileEncodingStatus.Success">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "success"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileEncodingStatus.Error">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "error"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileEncodingStatus.Cancelling">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "cancelling"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoFileEncodingStatus.Cancelled">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "cancelled"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.UserListType">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UserListType.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UserListType.Everybody">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "everybody"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UserListType.Friends">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "friends"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UserListType.Active">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "active"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.PlaylistSortType">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistSortType.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistSortType.UploadedDescending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-desc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistSortType.UploadedAscending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-asc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistSortType.ViewsDescending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-asc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.PlaylistSortType.ViewsAscending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-asc"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.PlaylistRules">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.Users">
+            <summary>
+            Corresponds to the remote Viddler API field "users"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.MaxAge">
+            <summary>
+            Corresponds to the remote Viddler API field "max_age"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.Tags">
+            <summary>
+            Corresponds to the remote Viddler API field "tags"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.Visibility">
+            <summary>
+            Corresponds to the remote Viddler API field "visibility"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.MinViews">
+            <summary>
+            Corresponds to the remote Viddler API field "min_views"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.MaxViews">
+            <summary>
+            Corresponds to the remote Viddler API field "max_views"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.MinUploadDate">
+            <summary>
+            Corresponds to the remote Viddler API field "min_upload_date"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.MaxUploadDate">
+            <summary>
+            Corresponds to the remote Viddler API field "max_upload_date"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.PlaylistRules.Sort">
+            <summary>
+            Corresponds to the remote Viddler API field "sort"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.FeaturedVideo">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.FeaturedVideo.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FeaturedVideo.FeaturedAt">
+            <summary>
+            Corresponds to the remote Viddler API field "featured_at"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FeaturedVideo.Video">
+            <summary>
+            Corresponds to the remote Viddler API field "video"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.EncodingProfile">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingProfile.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingProfile.Name">
+            <summary>
+            Corresponds to the remote Viddler API field "name"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingProfile.Format">
+            <summary>
+            Corresponds to the remote Viddler API field "format"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingProfile.Enabled">
+            <summary>
+            Corresponds to the remote Viddler API field "enabled"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingProfile.Bitrate">
+            <summary>
+            Corresponds to the remote Viddler API field "bitrate"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EncodingProfile.Dimensions">
+            <summary>
+            Corresponds to the remote Viddler API field "dimensions"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.GetFriendsVideos">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getFriendsVideos
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.ViddlerService">
+            <summary>
+            Provides a way to handle HTTP requests to the remote Viddler API methods.
+            </summary>
+            <example>
+            Using ViddlerService class:
+            <code>
+            <![CDATA[
+            namespace ViddlerConsole
+            {
+              class Program
+              {
+                static void Main(string[] args)
+                {
+                  // Create a new instance of the Viddler service, which handles execution of all methods
+                  Viddler.ViddlerService service =
+                    new Viddler.ViddlerService(
+                      "http://api.viddler.com/api/v2/",
+                      "https://api.viddler.com/api/v2/",
+                      "xxxxxxxxxxxxxxxxxxxx");
+            
+                  // Handle events, which occurr while HTTP requests to the remote service begin
+                  service.BeginRequest += new System.EventHandler<Viddler.ViddlerRequestEventArgs>(service_BeginRequest);
+            
+                  // Handle events, which occurr while HTTP requests to the remote service end
+                  service.EndRequest += new System.EventHandler<Viddler.ViddlerRequestEventArgs>(service_EndRequest);
+            
+                  // Handle exceptions thrown by service
+                  service.Error += new System.EventHandler<Viddler.ViddlerRequestErrorEventArgs>(service_Error);
+            
+                  // Handle file upload progress
+                  service.Uploading += new System.EventHandler<Viddler.ViddlerRequestUploadEventArgs>(service_Uploading);
+            
+                  // Authenticate some user
+                  Viddler.Data.UserSession session = service.Users.Auth("someUserName", "someSecretPassword");
+                  if (session != null)
+                  {
+                    System.Console.WriteLine("Session ID: {0}", session.SessionId);
+                    System.Console.WriteLine();
+                  }
+            
+                  // Get a collection of videos
+                  Viddler.Data.VideoList videoList = service.Videos.GetByUser();
+                  if (videoList != null && videoList.Items != null)
+                  {
+                    System.Console.WriteLine("Videos ({0} items):", videoList.Items.Count);
+                    System.Console.WriteLine();
+            
+                    // Iterate through the video collection items
+                    foreach (Viddler.Data.Video video in videoList.Items)
+                    {
+                      System.Console.WriteLine(video.Title);
+                      System.Console.WriteLine(video.Url);
+                      System.Console.WriteLine();
+                    }
+                  }
+            
+                  // Upload a new video file
+                  Viddler.Data.Video newVideo = service.Videos.Upload(
+                    "New file",
+                    "sample,test",
+                    "My new file",
+                    true,
+                    @"c:\MyNewVideo.mpg",
+                    true);
+                  if (newVideo != null && newVideo.Status.HasValue)
+                  {
+                    System.Console.WriteLine("Status: {0}", newVideo.Status.Value);
+                    System.Console.WriteLine();
+                  }
+                  System.Console.Read();
+                }
+            
+                static void service_BeginRequest(object sender, Viddler.ViddlerRequestEventArgs e)
+                {
+                  System.Console.WriteLine("BeginRequest: {0}", e.ContractType);
+                  System.Console.WriteLine();
+                }
+            
+                static void service_EndRequest(object sender, Viddler.ViddlerRequestEventArgs e)
+                {
+                  System.Console.WriteLine("EndRequest: {0}", e.ContractType);
+                  System.Console.WriteLine();
+                }
+            
+                static void service_Error(object sender, Viddler.ViddlerRequestErrorEventArgs e)
+                {
+                  System.Console.WriteLine("Error: {0}", e.Exception.Message);
+                  System.Console.WriteLine();
+                }
+            
+                static void service_Uploading(object sender, Viddler.ViddlerRequestUploadEventArgs e)
+                {
+                  System.Console.WriteLine("Uploading: {0} of {1} bytes sent", e.BytesSent, e.TotalBytes);
+                  System.Console.WriteLine();
+                }
+              }
+            }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="F:Viddler.ViddlerService.videos">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerService.users">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerService.api">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerService.encoding">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerService.groups">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerService.playLists">
+            <summary/>
+        </member>
+        <member name="M:Viddler.ViddlerService.#ctor">
+            <summary>
+            Initializes a new instance of ViddlerService class, which provides a way to handle HTTP requests to the remote Viddler API methods.
+            </summary>
+            <remarks>Provide valid base URL, secure base URL and API key by setting .config file or by passing them manually to this instance.</remarks>
+        </member>
+        <member name="M:Viddler.ViddlerService.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of ViddlerService class, which provides a way to handle HTTP requests to the remote Viddler API methods.
+            </summary>
+            <remarks>Provide valid base URL, secure base URL and API key by setting .config file or by passing them manually to this instance.</remarks>
+        </member>
+        <member name="M:Viddler.ViddlerService.ExecuteHttpRequest``2(System.Collections.Specialized.StringDictionary)">
+            <summary>
+            Remote API method execution.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerService.ExecuteHttpRequest``2(System.Collections.Specialized.StringDictionary,System.String,System.IO.Stream,Viddler.Data.UploadEndPoint)">
+            <summary>
+            Remote API method execution.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerService.ExecuteMultipartHttpRequest``2(Viddler.ViddlerMethodAttribute,System.Collections.Specialized.StringDictionary,System.String,System.IO.Stream,Viddler.Data.UploadEndPoint)">
+            <summary>
+            Remote API method execution using HTTP "post" method with content type set to "multipart/form-data". 
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerService.ExecutePostHttpRequest``2(Viddler.ViddlerMethodAttribute,System.Collections.Specialized.StringDictionary)">
+            <summary>
+            Remote API method execution using HTTP "post" method. 
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerService.ExecuteGetHttpRequest``2(Viddler.ViddlerMethodAttribute,System.Collections.Specialized.StringDictionary)">
+            <summary>
+            Remote API method execution using HTTP "get" method. 
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerService.HandleHttpResponse``2(System.Net.HttpWebRequest,Viddler.ViddlerMethodAttribute)">
+            <summary>
+            Handles a web response from the remote server. 
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerService.HandleHttpError(System.Net.WebException)">
+            <summary>
+            Handles errors occuring during communication with the remote server. 
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.Playlists">
+            <summary>
+            Provides access to Viddler API methods located in viddler.playlists namespace.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.Groups">
+            <summary>
+            Provides access to Viddler API methods located in viddler.groups namespace.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.Encoding">
+            <summary>
+            Provides access to Viddler API methods located in viddler.encoding namespace.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.Api">
+            <summary>
+            Provides access to Viddler API methods located in viddler.api namespace.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.Videos">
+            <summary>
+            Provides access to Viddler API methods located in viddler.videos namespace.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.Users">
+            <summary>
+            Provides access to Viddler API methods located in viddler.users namespace.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.SessionId">
+            <summary>
+            Gets or sets session identifier, which is being used to hadle personalized request.
+            </summary>
+            <remarks>The session identifier can be set either manually or automatically by calling Auth method located in viddler.users namespace.</remarks>
+        </member>
+        <member name="P:Viddler.ViddlerService.ApiKey">
+            <summary>
+            Gets or sets Viddler API key.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.BaseUrl">
+            <summary>
+            Gets or sets a base HTTP URL for the remote Viddler API methods.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.SecureBaseUrl">
+            <summary>
+            Gets or sets a base HTTPS URL for the remote Viddler API methods.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.EnableSsl">
+            <summary>
+            Gets or sets a value indicating whether to use SecureBaseUrl.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerService.IsAuthenticated">
+            <summary>
+            Gets a value indicating whether session identifier has been set.
+            </summary>
+        </member>
+        <member name="E:Viddler.ViddlerService.BeginRequest">
+            <summary>
+            Occurs before a remote API method request is started.
+            </summary>
+        </member>
+        <member name="E:Viddler.ViddlerService.EndRequest">
+            <summary>
+            Occurs when a remote API method request has been successfully completed.
+            </summary>
+        </member>
+        <member name="E:Viddler.ViddlerService.Error">
+            <summary>
+            Occurs when an exception is thrown during communication with remote API method.
+            </summary>
+        </member>
+        <member name="E:Viddler.ViddlerService.Uploading">
+            <summary>
+            Occurs when a file stream is being sent to the remote Viddler service.
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoPermissionSettings">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="M:Viddler.Data.VideoPermissionSettings.#ctor">
+            <summary>
+            Initializes a new instance of data object class.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermissionSettings.SecretUrl">
+            <summary>
+            Corresponds to the remote Viddler API field "secreturl"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermissionSettings.View">
+            <summary>
+            Corresponds to the remote Viddler API field "view"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermissionSettings.Embed">
+            <summary>
+            Corresponds to the remote Viddler API field "embed"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermissionSettings.Tagging">
+            <summary>
+            Corresponds to the remote Viddler API field "tagging"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermissionSettings.Commenting">
+            <summary>
+            Corresponds to the remote Viddler API field "commenting"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoPermissionSettings.Download">
+            <summary>
+            Corresponds to the remote Viddler API field "download"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoListSortType">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoListSortType.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoListSortType.UploadedDescending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-desc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoListSortType.UploadedAscending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-asc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoListSortType.ViewsDescending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-asc"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoListSortType.ViewsAscending">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "uploaded-asc"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.FriendRequest">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendRequest.Id">
+            <summary>
+            Corresponds to the remote Viddler API field "id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendRequest.UserName">
+            <summary>
+            Corresponds to the remote Viddler API field "user"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendRequest.Date">
+            <summary>
+            Corresponds to the remote Viddler API field "date"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.FriendRequest.Message">
+            <summary>
+            Corresponds to the remote Viddler API field "message"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.UserStatsComments">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsComments.Posted">
+            <summary>
+            posted
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsComments.Received">
+            <summary>
+            received
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.DisableAds">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.disableAds
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoAdsResult">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoAdsResult.Changed">
+            <summary>
+            Corresponds to the remote Viddler API field "changed"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoAdsResult.VideoIds">
+            <summary>
+            Corresponds to the remote Viddler API field "video_ids"
+            </summary>
+        </member>
+        <member name="T:Viddler.ViddlerRequestType">
+            <summary>
+            Provides enumerated values for the HTTP request method type.
+            </summary>
+        </member>
+        <member name="F:Viddler.ViddlerRequestType.Get">
+            <summary>
+            HTTP GET method.
+            </summary>
+        </member>
+        <member name="F:Viddler.ViddlerRequestType.Post">
+            <summary>
+            HTTP POST method.
+            </summary>
+        </member>
+        <member name="F:Viddler.ViddlerRequestType.Multipart">
+            <summary>
+            HTTP POST method with content type set to "multipart/form-data".
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.UserStatsVideos">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsVideos.Public">
+            <summary>
+            Corresponds to the remote Viddler API field "public"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsVideos.Private">
+            <summary>
+            Corresponds to the remote Viddler API field "private"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsVideos.Shared">
+            <summary>
+            Corresponds to the remote Viddler API field "shared"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsVideos.Total">
+            <summary>
+            Corresponds to the remote Viddler API field "total"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsVideos.Favorites">
+            <summary>
+            Corresponds to the remote Viddler API field "favorites"
+            </summary>
+        </member>
+        <member name="T:Viddler.Api.Echo">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.api.echo
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.EchoMessage">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.EchoMessage.Message">
+            <summary>
+            Corresponds to the remote Viddler API field "message"
+            </summary>
+        </member>
+        <member name="T:Viddler.Encoding.Encode">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.encoding.encode
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.EnableAds">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.enableAds
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.ViddlerRequestUploadEventArgs">
+            <summary>
+            Provides data for the generic EventHandler event.
+            </summary>
+        </member>
+        <member name="F:Viddler.ViddlerRequestUploadEventArgs.requestContractType">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerRequestUploadEventArgs.totalBytes">
+            <summary/>
+        </member>
+        <member name="F:Viddler.ViddlerRequestUploadEventArgs.bytesSent">
+            <summary/>
+        </member>
+        <member name="M:Viddler.ViddlerRequestUploadEventArgs.#ctor(System.Type,System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of ViddlerRequestUploadEventArgs class.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestUploadEventArgs.ContractType">
+            <summary>
+            Gets a type of contract class used during a HTTP request.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestUploadEventArgs.TotalBytes">
+            <summary>
+            Gets a size of a file being currently uploaded.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestUploadEventArgs.BytesSent">
+            <summary>
+            Gets a number of bytes already sent.
+            </summary>
+        </member>
+        <member name="P:Viddler.ViddlerRequestUploadEventArgs.Cancel">
+            <summary>
+            Gets or sets a value indicating whether to abort the current upload process.
+            </summary>
+        </member>
+        <member name="T:Viddler.ViddlerHelper">
+            <summary>
+            Provides internal helper methods.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.FindMimeFromData(System.UInt32,System.String,System.Byte[],System.UInt32,System.String,System.UInt32,System.UInt32@,System.UInt32)">
+            <summary>
+            Returns MIME type of the specified file type using urlmon.dll library.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.GetMimeType(System.IO.Stream)">
+            <summary>
+            Returns MIME type of the specified file.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.EncodeRequestData(System.String)">
+            <summary>
+            Escapes request parameter values.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.GetEnumName(System.Reflection.FieldInfo)">
+            <summary>
+            Returns an enumerated value used by remote Viddler API methods.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.GetMethodAttribute(System.Type)">
+            <summary>
+            Returns configuration parameters of the specified contract class, which represents remote Viddler API method.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.GetExpectedPrimitiveTypeNodes(System.Type)">
+            <summary>
+            Analyzes target response data object and collects properties of promitive type.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.CollectExpectedPrimitiveTypeNodes(System.String,System.Type,System.Collections.Generic.Dictionary{System.String,System.Type},System.Int32)">
+            <summary>
+            Analyzes target response data object and collects properties of promitive type.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.GetXmlElementName(System.Reflection.PropertyInfo)">
+            <summary>
+            Returns a node name used by XmlSerializer.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.GetXmlArrayName(System.Reflection.PropertyInfo)">
+            <summary>
+            Returns a node name used by XmlSerializer.
+            </summary>
+        </member>
+        <member name="M:Viddler.ViddlerHelper.GetXmlArrayItemName(System.Reflection.PropertyInfo)">
+            <summary>
+            Returns a node name used by XmlSerializer.
+            </summary>
+        </member>
+        <member name="T:Viddler.Playlists.List">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.list
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.UserStatsUsage">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsUsage.Storage">
+            <summary>
+            Corresponds to the remote Viddler API field "storage"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.UserStatsUsage.Bandwidth">
+            <summary>
+            Corresponds to the remote Viddler API field "bandwidth"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.UserGender">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UserGender.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UserGender.Male">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "m"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UserGender.Female">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "f"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.UserGender.None">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "n"
+            </summary>
+        </member>
+        <member name="T:Viddler.Videos.Unfavorite">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.unfavorite
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.GetRecordToken">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getRecordToken
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Videos.GetAdsStatus">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.videos.getAdsStatus
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoAdsStatus">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoAdsStatus.VideoId">
+            <summary>
+            Corresponds to the remote Viddler API field "video_id"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoAdsStatus.Status">
+            <summary>
+            Corresponds to the remote Viddler API field "status"
+            </summary>
+        </member>
+        <member name="T:Viddler.Users.Search">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.users.search
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Playlists.Create">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.create
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Playlists.AddVideo">
+            <summary>
+            Provides request parameters for Viddler API remote method: viddler.playlists.addVideo
+            </summary>
+            <remarks>
+            This class is not intended to be used in your code in any way.
+            </remarks>
+        </member>
+        <member name="T:Viddler.Data.VideoTagType">
+            <summary>
+            Provides enumerated values used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoTagType.Unknown">
+            <summary>
+            Handles an empty value sent by the remote Viddler API
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoTagType.Global">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "global"
+            </summary>
+        </member>
+        <member name="F:Viddler.Data.VideoTagType.Timed">
+            <summary>
+            Corresponds to the remote Viddler API enumerated value "timed"
+            </summary>
+        </member>
+        <member name="T:Viddler.Data.VideoTag">
+            <summary>
+            Represents a data object used to deserialize the remote Viddler API method result.
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoTag.Type">
+            <summary>
+            Corresponds to the remote Viddler API field "level"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoTag.Text">
+            <summary>
+            Corresponds to the remote Viddler API field "text"
+            </summary>
+        </member>
+        <member name="P:Viddler.Data.VideoTag.Offset">
+            <summary>
+            Corresponds to the remote Viddler API field "offset"
+            </summary>
+        </member>
+    </members>
+</doc>
