@@ -1,5 +1,7 @@
+obj/
 */obj
 */obj/*
+bin/
 */bin
 */bin/*
 deploy
@@ -16,6 +18,8 @@ Thumbs.db
 *.swp
 UpgradeWizardLog.xml
 _UpgradeWizard_Files/*
+UpgradeLog.XML
+_UpgradeReport_Files/
 *.orig
 *Publish.xml
 */*Publish.xml
