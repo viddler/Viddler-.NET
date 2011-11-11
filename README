@@ -16,3 +16,9 @@ Release - binaries compiled using release mode (optimized for high performance)
 
 Source - source code of both, the wrapper library and demonstator application.
 
+Updates:
+	v1.1 - Updated project to Visual Studio 2010
+		 - Changed Viddler.Videos.GetByUser to provide parameter for Tags
+			- Added optional parameter "tags" to preserve backwards compatiblity without adding overload
+			- "tags" parameter must be comma separated list if more than one tag is desired
+	v1.0 - Initial Release

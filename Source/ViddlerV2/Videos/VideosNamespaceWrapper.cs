@@ -94,7 +94,6 @@ namespace Viddler.Videos
 	/// <summary>
 	/// Calls the remote Viddler API method: viddler.videos.getByUser
 	/// </summary>
-	/// <param name="tags">Comma separated list of tags</param>
 	public Data.VideoList GetByUser(string userName, bool? status, int? page, int? perPage, Data.VideoListSortType? sort, string tags = "")
 	{
 		StringDictionary parameters = new StringDictionary();
