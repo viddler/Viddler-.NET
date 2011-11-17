@@ -91,22 +91,22 @@ namespace Viddler.Videos
       return this.Service.ExecuteHttpRequest<Videos.PrepareUpload, Data.UploadEndPoint>(null);
     }
 
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getByUser
-    /// </summary>
-    public Data.VideoList GetByUser(string userName, bool? status, int? page, int? perPage, Data.VideoListSortType? sort)
-    {
-      StringDictionary parameters = new StringDictionary();
-      if (userName != null || !this.Service.IsAuthenticated) parameters.Add("user", userName);
-      if (sort.HasValue) parameters.Add("sort", ViddlerHelper.GetEnumName(sort.Value.GetType().GetField(sort.Value.ToString())));
-      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
-      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
-      if (status.HasValue) parameters.Add("status", status.Value ? "1" : "0");
-      if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
-    
-      return this.Service.ExecuteHttpRequest<Videos.GetByUser, Data.VideoList>(parameters);
-    }
+	/// <summary>
+	/// Calls the remote Viddler API method: viddler.videos.getByUser
+	/// </summary>
+	public Data.VideoList GetByUser(string userName, bool? status, int? page, int? perPage, Data.VideoListSortType? sort, string tags = "")
+	{
+		StringDictionary parameters = new StringDictionary();
+		if (!string.IsNullOrEmpty(userName) || !this.Service.IsAuthenticated) parameters.Add("user", userName);
+		if (sort.HasValue) parameters.Add("sort", ViddlerHelper.GetEnumName(sort.Value.GetType().GetField(sort.Value.ToString())));
+		if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
+		if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
+		if (status.HasValue) parameters.Add("status", status.Value ? "1" : "0");
+		if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
+		if (!string.IsNullOrEmpty(tags)) parameters.Add("tags", tags);
 
+		return this.Service.ExecuteHttpRequest<Videos.GetByUser, Data.VideoList>(parameters);
+	}
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.getByUser
     /// </summary>
