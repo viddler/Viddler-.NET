@@ -9,7 +9,7 @@ namespace Viddler.Videos
   /// <remarks>
   /// This class is not intended to be used in your code in any way.
   /// </remarks>
-  [ViddlerMethod(MethodName = "viddler.videos.getEmbedCode", ElementName = "video", IsSecure = false, IsSessionRequired = false, RequestType = ViddlerRequestType.Get)]
+  [ViddlerMethod(MethodName = "viddler.videos.getEmbedCode", ElementName = "video", IsSecure = false, IsSessionRequired = true, RequestType = ViddlerRequestType.Get)]
   public class GetEmbedCode : Viddler.Data.VideoEmbedCode
   {
   }
