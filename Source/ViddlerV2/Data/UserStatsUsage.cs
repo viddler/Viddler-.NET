@@ -13,7 +13,7 @@ namespace Viddler.Data
     /// Corresponds to the remote Viddler API field "storage"
     /// </summary>
     [XmlElement(ElementName = "storage")]
-    public int? Storage
+    public Int64? Storage
     {
       get;
       set;
@@ -23,7 +23,7 @@ namespace Viddler.Data
     /// Corresponds to the remote Viddler API field "bandwidth"
     /// </summary>
     [XmlElement(ElementName = "bandwidth")]
-    public int? Bandwidth
+    public Int64? Bandwidth
     {
       get;
       set;
