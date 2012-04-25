@@ -20,15 +20,15 @@ namespace Viddler.Data
     [XmlEnum(Name = "private")]
     Private,
     /// <summary>
-    /// Corresponds to the remote Viddler API enumerated value "shared"
+    /// Corresponds to the remote Viddler API enumerated value "invite"
     /// </summary>
-    [XmlEnum(Name = "shared")]
-    Shared,
+    [XmlEnum(Name = "invite")]
+    Invite,
     /// <summary>
-    /// Corresponds to the remote Viddler API enumerated value "shared_all"
+    /// Corresponds to the remote Viddler API enumerated value "embed"
     /// </summary>
-    [XmlEnum(Name = "shared_all")]
-    SharedAll,
+    [XmlEnum(Name = "embed")]
+    Embed,
     /// <summary>
     /// Corresponds to the remote Viddler API enumerated value "public"
     /// </summary>
