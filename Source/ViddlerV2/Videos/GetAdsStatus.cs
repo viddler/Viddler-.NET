@@ -10,7 +10,7 @@ namespace Viddler.Videos
   /// This class is not intended to be used in your code in any way.
   /// </remarks>
   [ViddlerMethod(MethodName = "viddler.videos.getAdsStatus", ElementName = "video_ads_status", IsSecure = false, IsSessionRequired = true, RequestType = ViddlerRequestType.Get)]
-  public class GetAdsStatus : Viddler.Data.VideoAdsStatus
+  public class GetAdsStatus : Viddler.Data.AdsStatus
   {
   }
 }

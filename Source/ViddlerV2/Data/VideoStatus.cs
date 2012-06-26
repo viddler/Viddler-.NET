@@ -13,16 +13,16 @@ namespace Viddler.Data
     /// Handles an empty value sent by the remote Viddler API
     /// </summary>
     [XmlEnum(Name = "")]
-    Unknown,
+    Undefined,
     /// <summary>
     /// Corresponds to the remote Viddler API enumerated value "ready"
     /// </summary>
     [XmlEnum(Name = "ready")]
     Ready,
     /// <summary>
-    /// Corresponds to the remote Viddler API enumerated value "processing"
+    /// Corresponds to the remote Viddler API enumerated value "not_ready"
     /// </summary>
-    [XmlEnum(Name = "not_ready")] //?Is the name ok?
+    [XmlEnum(Name = "not_ready")]
     NotReady,
     /// <summary>
     /// Corresponds to the remote Viddler API enumerated value "deleted"

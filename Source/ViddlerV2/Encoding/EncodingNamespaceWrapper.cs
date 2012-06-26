@@ -17,8 +17,7 @@ namespace Viddler.Encoding
     /// <summary>
     /// Initializes a new instance of EncodingNamespaceWrapper class.
     /// </summary>
-    internal EncodingNamespaceWrapper(ViddlerService service)
-      : base(service)
+    internal EncodingNamespaceWrapper(ViddlerService service) : base(service)
     {
     }
 
@@ -31,58 +30,64 @@ namespace Viddler.Encoding
     }
 
     /// <summary>
+    /// Calls the remote Viddler API method: viddler.encoding.getStatus2
+    /// </summary>
+    public Data.VideoEncodingList GetStatus2()
+    {
+      return this.Service.ExecuteHttpRequest<Encoding.GetStatus2, Data.VideoEncodingList>(null);
+    }
+
+    /// <summary>
     /// Calls the remote Viddler API method: viddler.encoding.encode
     /// </summary>
-    public Data.EncodingStatus Encode(string videoId, int profileId)
+    public Data.VideoFileEncoding Encode(string videoId, int profileId)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_id", videoId);
       parameters.Add("profile_id", profileId.ToString(CultureInfo.InvariantCulture));
 
-      return this.Service.ExecuteHttpRequest<Encoding.Encode, Data.EncodingStatus>(parameters);
+      return this.Service.ExecuteHttpRequest<Encoding.Encode, Data.VideoFileEncoding>(parameters);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.encoding.cancel
     /// </summary>
-    public Data.EncodingStatus Cancel(string fileId)
+    public Data.VideoEncodingList Cancel(string fileId)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("file_id", fileId);
 
-      return this.Service.ExecuteHttpRequest<Encoding.Cancel, Data.EncodingStatus>(parameters);
+      return this.Service.ExecuteHttpRequest<Encoding.Cancel, Data.VideoEncodingList>(parameters);
     }
 
     /// <summary>
-    /// Calls the remote Viddler API method: viddler.encoding.getOptions
+    /// Calls the remote Viddler API method: viddler.encoding.getSettings
     /// </summary>
-    public Data.EncodingOptions GetOptions()
+    public Data.EncodingSettings GetSettings()
     {
-      return this.Service.ExecuteHttpRequest<Encoding.GetOptions, Data.EncodingOptions>(null);
+      return this.Service.ExecuteHttpRequest<Encoding.GetSettings, Data.EncodingSettings>(null);
     }
 
     /// <summary>
-    /// Calls the remote Viddler API method: viddler.encoding.setOptions
+    /// Calls the remote Viddler API method: viddler.encoding.setSettings
     /// </summary>
-    public Data.EncodingOptions SetOptions(bool? respectSourceDimensions, bool? preserveSourceFlvFiles)
-    {
-      StringDictionary parameters = new StringDictionary();
-      if (respectSourceDimensions.HasValue) parameters.Add("respect_source_dimensions", respectSourceDimensions.Value ? "1" : "0");
-      if (preserveSourceFlvFiles.HasValue) parameters.Add("preserve_source_flv_files", preserveSourceFlvFiles.Value ? "1" : "0");
-
-      return this.Service.ExecuteHttpRequest<Encoding.SetOptions, Data.EncodingOptions>(parameters);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.encoding.setOptions
-    /// </summary>
-    public Data.EncodingOptions SetOptions(int profileId, bool? profileEnabled, int? profileBitrate)
+    public Data.EncodingSettings SetSettings(bool useSourceForPlayback)
     {
       StringDictionary parameters = new StringDictionary();
-      if (profileEnabled.HasValue) parameters.Add(string.Concat("profile_", profileId, "_enabled"), profileEnabled.Value ? "1" : "0");
-      if (profileBitrate.HasValue) parameters.Add(string.Concat("profile_", profileId, "_bitrate"), profileBitrate.Value.ToString(CultureInfo.InvariantCulture));
+      parameters.Add("use_source_for_playback", useSourceForPlayback ? "1" : "0");
 
-      return this.Service.ExecuteHttpRequest<Encoding.SetOptions, Data.EncodingOptions>(parameters);
+      return this.Service.ExecuteHttpRequest<Encoding.SetSettings, Data.EncodingSettings>(parameters);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.encoding.setSettings
+    /// </summary>
+    public Data.EncodingSettings SetSettings(int profileId, int profileBitrate)
+    {
+      StringDictionary parameters = new StringDictionary();
+      parameters.Add(string.Concat("profile_", profileId, "_bitrate"), profileBitrate.ToString(CultureInfo.InvariantCulture));
+
+      return this.Service.ExecuteHttpRequest<Encoding.SetSettings, Data.EncodingSettings>(parameters);
     }
   }
 }

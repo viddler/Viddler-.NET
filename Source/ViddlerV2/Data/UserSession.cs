@@ -18,5 +18,15 @@ namespace Viddler.Data
       get;
       set;
     }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "record_token"
+    /// </summary>
+    [XmlElement(ElementName = "record_token")]
+    public string RecordToken
+    {
+      get;
+      set;
+    }
   }
 }

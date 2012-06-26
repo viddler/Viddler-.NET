@@ -13,7 +13,7 @@ namespace Viddler.Data
     /// Handles an empty value sent by the remote Viddler API
     /// </summary>
     [XmlEnum(Name = "")]
-    Unknown,
+    Undefined,
     /// <summary>
     /// Corresponds to the remote Viddler API enumerated value "ready"
     /// </summary>
@@ -35,9 +35,14 @@ namespace Viddler.Data
     [XmlEnum(Name = "deleted")]
     Deleted,
     /// <summary>
-    /// Corresponds to the remote Viddler API enumerated value "deleted"
+    /// Corresponds to the remote Viddler API enumerated value "error"
     /// </summary>
     [XmlEnum(Name = "error")]
-    Error
+    Error,
+    /// <summary>
+    /// Corresponds to the remote Viddler API enumerated value "purged"
+    /// </summary>
+    [XmlEnum(Name = "purged")]
+    Purged
   }
 }

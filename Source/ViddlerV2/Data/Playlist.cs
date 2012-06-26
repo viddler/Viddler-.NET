@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace Viddler.Data
@@ -44,6 +46,16 @@ namespace Viddler.Data
     /// </summary>
     [XmlElement(ElementName = "visibility")]
     public PlaylistVisibilityType? Visibility
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "user"
+    /// </summary>
+    [XmlElement(ElementName = "user")]
+    public string User
     {
       get;
       set;

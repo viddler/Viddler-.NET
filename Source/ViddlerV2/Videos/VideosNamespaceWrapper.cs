@@ -14,30 +14,91 @@ namespace Viddler.Videos
   /// <remarks>Visit <a href="http://developers.viddler.com/" target="_blank">http://developers.viddler.com/</a> to get the full overview of methods contained in this class.</remarks>
   public sealed class VideosNamespaceWrapper : ViddlerNamespaceProvider
   {
+    /// <summary/>
+    private Comments.CommentsNamespaceWrapper comments;
+
     /// <summary>
     /// Initializes a new instance of VideosNamespaceWrapper class.
     /// </summary>
-    internal VideosNamespaceWrapper(ViddlerService service)
-      : base(service)
+    internal VideosNamespaceWrapper(ViddlerService service) : base(service)
     {
+    }
+
+    /// <summary>
+    /// Provides access to Viddler API methods located in viddler.videos.comments namespace.
+    /// </summary>
+    public Comments.CommentsNamespaceWrapper Comments
+    {
+      get
+      {
+        if (this.comments == null)
+        {
+          this.comments = new Comments.CommentsNamespaceWrapper(this.Service);
+        }
+        return this.comments;
+      }
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.addClosedCaptioning
+    /// </summary>
+    public Data.Video AddClosedCaptioning(string videoId, string language, string closedCaptioningUrl, bool? isDefault)
+    {
+      StringDictionary parameters = new StringDictionary();
+      parameters.Add("video_id", videoId);
+      parameters.Add("language", language);
+      parameters.Add("closed_captioning_url", closedCaptioningUrl);
+      if (isDefault.HasValue) parameters.Add("default", isDefault.Value ? "1" : "0");
+
+      return this.Service.ExecuteHttpRequest<Videos.AddClosedCaptioning, Data.Video>(parameters);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.setClosedCaptioning
+    /// </summary>
+    public Data.Video SetClosedCaptioning(string closedCaptioningId, string language, bool? enabled, bool? isDefault)
+    {
+      StringDictionary parameters = new StringDictionary();
+      parameters.Add("closed_captioning_id", closedCaptioningId);
+      if (!string.IsNullOrEmpty(language)) parameters.Add("language", language);
+      if (isDefault.HasValue) parameters.Add("default", isDefault.Value ? "1" : "0");
+      if (enabled.HasValue) parameters.Add("enabled", enabled.Value ? "1" : "0");
+
+      return this.Service.ExecuteHttpRequest<Videos.SetClosedCaptioning, Data.Video>(parameters);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.delClosedCaptioning
+    /// </summary>
+    public Data.Video DelClosedCaptioning(string closedCaptioningId)
+    {
+      StringDictionary parameters = new StringDictionary();
+      parameters.Add("closed_captioning_id", closedCaptioningId);
+
+      return this.Service.ExecuteHttpRequest<Videos.SetClosedCaptioning, Data.Video>(parameters);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.upload
     /// </summary>
-    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string fileName, Stream fileStream, bool useEndPoint)
+    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string fileName, Stream fileStream)
     {
+      Data.UploadEndPoint endPoint = this.PrepareUpload();
+      return this.Upload(title, tags, description, makePublic, fileName, fileStream, endPoint);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.upload
+    /// </summary>
+    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string fileName, Stream fileStream, Data.UploadEndPoint endPoint)
+    {
+      if (endPoint == null) endPoint = this.PrepareUpload();
+
       StringDictionary parameters = new StringDictionary();
       parameters.Add("title", title);
-      if (!string.IsNullOrEmpty(tags)) parameters.Add("tags", tags);
-      if (!string.IsNullOrEmpty(description)) parameters.Add("description", description);
+      if (tags != null) parameters.Add("tags", tags);
+      if (description != null) parameters.Add("description", description);
       if (makePublic.HasValue) parameters.Add("make_public", makePublic.Value ? "1" : "0");
-
-      Data.UploadEndPoint endPoint = null;
-      if (useEndPoint)
-      {
-        endPoint = this.PrepareUpload();
-      }
 
       Data.Video video;
       if (fileStream != null && !fileStream.CanSeek)
@@ -65,7 +126,16 @@ namespace Viddler.Videos
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.upload
     /// </summary>
-    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string localPath, bool useEndPoint)
+    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string localPath)
+    {
+      Data.UploadEndPoint endPoint = this.PrepareUpload();
+      return this.Upload(title, tags, description, makePublic, localPath, endPoint);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.upload
+    /// </summary>
+    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string localPath, Data.UploadEndPoint endPoint)
     {
       Data.Video responseObject;
       FileInfo file = new FileInfo(localPath);
@@ -73,12 +143,12 @@ namespace Viddler.Videos
       {
         using (FileStream stream = file.OpenRead())
         {
-          responseObject = this.Upload(title, tags, description, makePublic, file.Name, stream, useEndPoint);
+          responseObject = this.Upload(title, tags, description, makePublic, file.Name, stream, endPoint);
         }
       }
       else
       {
-        responseObject = this.Upload(title, tags, description, makePublic, null, Stream.Null, useEndPoint);
+        responseObject = this.Upload(title, tags, description, makePublic, null, Stream.Null, endPoint);
       }
       return responseObject;
     }
@@ -91,36 +161,100 @@ namespace Viddler.Videos
       return this.Service.ExecuteHttpRequest<Videos.PrepareUpload, Data.UploadEndPoint>(null);
     }
 
-	/// <summary>
-	/// Calls the remote Viddler API method: viddler.videos.getByUser
-	/// </summary>
-	public Data.VideoList GetByUser(string userName, bool? status, int? page, int? perPage, Data.VideoListSortType? sort, string tags = "")
-	{
-		StringDictionary parameters = new StringDictionary();
-		if (!string.IsNullOrEmpty(userName) || !this.Service.IsAuthenticated) parameters.Add("user", userName);
-		if (sort.HasValue) parameters.Add("sort", ViddlerHelper.GetEnumName(sort.Value.GetType().GetField(sort.Value.ToString())));
-		if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
-		if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
-		if (status.HasValue) parameters.Add("status", status.Value ? "1" : "0");
-		if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
-		if (!string.IsNullOrEmpty(tags)) parameters.Add("tags", tags);
-
-		return this.Service.ExecuteHttpRequest<Videos.GetByUser, Data.VideoList>(parameters);
-	}
     /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getByUser
+    /// Calls the remote Viddler API method: viddler.videos.uploadProgress
     /// </summary>
-    public Data.VideoList GetByUser(string userName)
+    public Data.UploadProgress UploadProgress(string token)
     {
-      return this.GetByUser(userName, null, null, null, null);
+      StringDictionary parameters = new StringDictionary();
+      parameters.Add("token", token);
+
+      return this.Service.ExecuteHttpRequest<Videos.UploadProgress, Data.UploadProgress>(parameters);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.search
+    /// </summary>
+    public Data.VideoList SearchYourVideos(string query, DateTime? minUploadDate, DateTime? maxUploadDate, int? maxAge, int? page, int? perPage, Data.VideoListSortType? sort)
+    {
+      StringDictionary parameters = new StringDictionary();
+      parameters.Add("type", "yourvideos");
+      parameters.Add("query", query);
+      if (minUploadDate.HasValue) parameters.Add("min_upload_date", minUploadDate.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
+      if (maxUploadDate.HasValue) parameters.Add("max_upload_date", maxUploadDate.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
+      if (maxAge.HasValue) parameters.Add("max_age", maxAge.Value.ToString(CultureInfo.InvariantCulture));
+      if (sort.HasValue) parameters.Add("sort", ViddlerHelper.GetEnumName(sort.Value.GetType().GetField(sort.Value.ToString())));
+      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
+      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
+      if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
+
+      return this.Service.ExecuteHttpRequest<Videos.Search, Data.VideoList>(parameters);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.search
+    /// </summary>
+    public Data.VideoList SearchUser(string user, int? page, int? perPage, Data.VideoListSortType? sort)
+    {
+      StringDictionary parameters = new StringDictionary();
+      parameters.Add("type", "user");
+      parameters.Add("user", user);
+      if (sort.HasValue) parameters.Add("sort", ViddlerHelper.GetEnumName(sort.Value.GetType().GetField(sort.Value.ToString())));
+      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
+      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
+      if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
+
+      return this.Service.ExecuteHttpRequest<Videos.Search, Data.VideoList>(parameters);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.search
+    /// </summary>
+    public Data.VideoList SearchAllVideos(string query, int? page, int? perPage, Data.VideoListSortType? sort)
+    {
+      StringDictionary parameters = new StringDictionary();
+      parameters.Add("type", "allvideos");
+      parameters.Add("query", query);
+      if (sort.HasValue) parameters.Add("sort", ViddlerHelper.GetEnumName(sort.Value.GetType().GetField(sort.Value.ToString())));
+      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
+      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
+      if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
+
+      return this.Service.ExecuteHttpRequest<Videos.Search, Data.VideoList>(parameters);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.getByUser
     /// </summary>
-    public Data.VideoList GetByUser(bool? status, int? page, int? perPage, Data.VideoListSortType? sort)
+    public Data.VideoList GetByUser(string userName, string tags, bool? status, Data.PermissionLevel? visibility, int? page, int? perPage, Data.VideoListSortType? sort, bool? idOnly)
     {
-      return this.GetByUser(null, status, page, perPage, sort);
+      StringDictionary parameters = new StringDictionary();
+      if (!string.IsNullOrEmpty(userName)) parameters.Add("user", userName);
+      if (sort.HasValue) parameters.Add("sort", ViddlerHelper.GetEnumName(sort.Value.GetType().GetField(sort.Value.ToString())));
+      if (visibility.HasValue) parameters.Add("visibility", ViddlerHelper.GetEnumName(visibility.Value.GetType().GetField(visibility.Value.ToString())));
+      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
+      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
+      if (status.HasValue) parameters.Add("status", status.Value ? "1" : "0");
+      if (idOnly.HasValue) parameters.Add("id_only", idOnly.Value ? "1" : "0");
+      if (!string.IsNullOrEmpty(tags)) parameters.Add("tags", tags);
+      if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
+
+      return this.Service.ExecuteHttpRequest<Videos.GetByUser, Data.VideoList>(parameters);
+    }
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.getByUser
+    /// </summary>
+    public Data.VideoList GetByUser(string userName)
+    {
+      return this.GetByUser(userName, null, null, null, null, null, null, null);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.getByUser
+    /// </summary>
+    public Data.VideoList GetByUser(bool? status, Data.PermissionLevel? visibility, int? page, int? perPage, Data.VideoListSortType? sort, bool? idOnly)
+    {
+      return this.GetByUser(null, null, status, visibility, page, perPage, sort, idOnly);
     }
 
     /// <summary>
@@ -128,13 +262,13 @@ namespace Viddler.Videos
     /// </summary>
     public Data.VideoList GetByUser()
     {
-      return this.GetByUser(null, null, null, null, null);
+      return this.GetByUser(null, null, null, null, null, null, null, null);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.getByTag
     /// </summary>
-    public Data.VideoList GetByTag(string tag, bool? status, int? page, int? perPage, Data.VideoListSortType? sort)
+    public Data.VideoList GetByTag(string tag, bool? status, int? page, int? perPage, Data.VideoListSortType? sort, bool? idOnly)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("tag", tag);
@@ -142,6 +276,7 @@ namespace Viddler.Videos
       if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
       if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
       if (status.HasValue) parameters.Add("status", status.Value ? "1" : "0");
+      if (idOnly.HasValue) parameters.Add("id_only", idOnly.Value ? "1" : "0");
       if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
 
       return this.Service.ExecuteHttpRequest<Videos.GetByTag, Data.VideoList>(parameters);
@@ -152,19 +287,23 @@ namespace Viddler.Videos
     /// </summary>
     public Data.VideoList GetByTag(string tag)
     {
-      return this.GetByTag(tag, null, null, null, null);
+      return this.GetByTag(tag, null, null, null, null, null);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.getDetails
     /// </summary>
-    public Data.Video GetDetails(string videoId, bool? includeComments, bool? addEmbedCode, bool? status)
+    public Data.Video GetDetailsById(string videoId, bool? addComments, bool? addEmbedCode, bool? addProfile, bool? addViewToken, bool? includeMetadata, bool? status, bool? idOnly)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_id", videoId);
-      if (includeComments.HasValue) parameters.Add("include_comments", includeComments.Value ? "1" : "0");
+      if (addComments.HasValue) parameters.Add("add_comments", addComments.Value ? "1" : "0");
       if (addEmbedCode.HasValue) parameters.Add("add_embed_code", addEmbedCode.Value ? "1" : "0");
       if (status.HasValue) parameters.Add("status", status.Value ? "1" : "0");
+      if (idOnly.HasValue) parameters.Add("id_only", idOnly.Value ? "1" : "0");
+      if (addProfile.HasValue) parameters.Add("add_profile", addProfile.Value ? "1" : "0");
+      if (addViewToken.HasValue) parameters.Add("add_view_token", addViewToken.Value ? "1" : "0");
+      if (includeMetadata.HasValue) parameters.Add("include_metadata", includeMetadata.Value ? "1" : "0");
       if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
 
       return this.Service.ExecuteHttpRequest<Videos.GetDetails, Data.Video>(parameters);
@@ -175,19 +314,23 @@ namespace Viddler.Videos
     /// </summary>
     public Data.Video GetDetailsById(string videoId)
     {
-      return this.GetDetails(videoId, null, null, null);
+      return this.GetDetailsById(videoId, null, null, null, null, null, null, null);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.getDetails
     /// </summary>
-    public Data.Video GetDetailsByUrl(string url, bool? includeComments, bool? addEmbedCode, bool? status)
+    public Data.Video GetDetailsByUrl(string url, bool? addComments, bool? addEmbedCode, bool? addProfile, bool? addViewToken, bool? includeMetadata, bool? status, bool? idOnly)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("url", url);
-      if (includeComments.HasValue) parameters.Add("include_comments", includeComments.Value ? "1" : "0");
+      if (addComments.HasValue) parameters.Add("add_comments", addComments.Value ? "1" : "0");
       if (addEmbedCode.HasValue) parameters.Add("add_embed_code", addEmbedCode.Value ? "1" : "0");
       if (status.HasValue) parameters.Add("status", status.Value ? "1" : "0");
+      if (idOnly.HasValue) parameters.Add("id_only", idOnly.Value ? "1" : "0");
+      if (addProfile.HasValue) parameters.Add("add_profile", addProfile.Value ? "1" : "0");
+      if (addViewToken.HasValue) parameters.Add("add_view_token", addViewToken.Value ? "1" : "0");
+      if (includeMetadata.HasValue) parameters.Add("include_metadata", includeMetadata.Value ? "1" : "0");
       if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
 
       return this.Service.ExecuteHttpRequest<Videos.GetDetails, Data.Video>(parameters);
@@ -198,51 +341,7 @@ namespace Viddler.Videos
     /// </summary>
     public Data.Video GetDetailsByUrl(string url)
     {
-      return this.GetDetailsByUrl(url, null, null, null);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getFavorites
-    /// </summary>
-    public Data.FavoriteList GetFavorites(string userName, int? page, int? perPage)
-    {
-      StringDictionary parameters = new StringDictionary();
-      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
-      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
-      if (!string.IsNullOrEmpty(userName))
-      {
-        parameters.Add("user", userName);
-      }
-      if (string.IsNullOrEmpty(userName) && this.Service.IsAuthenticated)
-      {
-        parameters.Add("sessionid", this.Service.SessionId);
-      }
-
-      return this.Service.ExecuteHttpRequest<Videos.GetFavorites, Data.FavoriteList>(parameters);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getFavorites
-    /// </summary>
-    public Data.FavoriteList GetFavorites(string userName)
-    {
-      return this.GetFavorites(userName, null, null);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getFavorites
-    /// </summary>
-    public Data.FavoriteList GetFavorites(int? page, int? perPage)
-    {
-      return this.GetFavorites(null, page, perPage);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getFavorites
-    /// </summary>
-    public Data.FavoriteList GetFavorites()
-    {
-      return this.GetFavorites(null, null, null);
+      return this.GetDetailsByUrl(url, null, null, null, null, null, null, null);
     }
 
     /// <summary>
@@ -258,8 +357,27 @@ namespace Viddler.Videos
     /// </summary>
     public Data.VideoEmbedCode GetEmbedCode(string videoId)
     {
+      return this.GetEmbedCode(videoId, null, null, null, null, null, null, null, null, null);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.getEmbedCode
+    /// </summary>
+    public Data.VideoEmbedCode GetEmbedCode(string videoId, int? width, int? height, Data.PlayerType? playerType,
+      Data.PlayerWindowMode? wmode, bool? autoplay, bool? branding, int? offset, int? embedCodeType, string flashvar)
+    {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_id", videoId);
+      if (width.HasValue) parameters.Add("width", width.Value.ToString(CultureInfo.InvariantCulture));
+      if (height.HasValue) parameters.Add("height", height.Value.ToString(CultureInfo.InvariantCulture));
+      if (playerType.HasValue) parameters.Add("player_type", ViddlerHelper.GetEnumName(playerType.Value.GetType().GetField(playerType.Value.ToString())));
+      if (wmode.HasValue) parameters.Add("wmode", ViddlerHelper.GetEnumName(wmode.Value.GetType().GetField(wmode.Value.ToString())));
+      if (autoplay.HasValue) parameters.Add("autoplay", autoplay.Value ? "1" : "0");
+      if (branding.HasValue) parameters.Add("branding", branding.Value ? "1" : "0");
+      if (offset.HasValue) parameters.Add("offset", offset.Value.ToString(CultureInfo.InvariantCulture));
+      if (embedCodeType.HasValue) parameters.Add("embed_code_type", embedCodeType.Value.ToString(CultureInfo.InvariantCulture));
+      if (!string.IsNullOrEmpty(flashvar)) parameters.Add("flashvar", flashvar);
+      if (this.Service.IsAuthenticated) parameters.Add("sessionid", this.Service.SessionId);
 
       return this.Service.ExecuteHttpRequest<Videos.GetEmbedCode, Data.VideoEmbedCode>(parameters);
     }
@@ -286,46 +404,6 @@ namespace Viddler.Videos
     }
 
     /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getPartner
-    /// </summary>
-    public Data.PartnerVideoList GetPartner(int? page, int? perPage)
-    {
-      StringDictionary parameters = new StringDictionary();
-      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
-      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
-
-      return this.Service.ExecuteHttpRequest<Videos.GetPartner, Data.PartnerVideoList>(parameters);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getPartner
-    /// </summary>
-    public Data.PartnerVideoList GetPartner()
-    {
-      return this.GetPartner(null, null);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getFriendsVideos
-    /// </summary>
-    public Data.FriendVideoList GetFriendsVideos(int? page, int? perPage)
-    {
-      StringDictionary parameters = new StringDictionary();
-      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
-      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
-
-      return this.Service.ExecuteHttpRequest<Videos.GetFriendsVideos, Data.FriendVideoList>(parameters);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getFriendsVideos
-    /// </summary>
-    public Data.FriendVideoList GetFriendsVideos()
-    {
-      return this.GetFriendsVideos(null, null);
-    }
-
-    /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.getRecordToken
     /// </summary>
     public string GetRecordToken()
@@ -335,34 +413,14 @@ namespace Viddler.Videos
     }
 
     /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getSubscribed
-    /// </summary>
-    public Data.SubscribedVideoList GetSubscribed(int? page, int? perPage)
-    {
-      StringDictionary parameters = new StringDictionary();
-      if (page.HasValue) parameters.Add("page", page.Value.ToString(CultureInfo.InvariantCulture));
-      if (perPage.HasValue) parameters.Add("per_page", perPage.Value.ToString(CultureInfo.InvariantCulture));
-
-      return this.Service.ExecuteHttpRequest<Videos.GetSubscribed, Data.SubscribedVideoList>(parameters);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.getSubscribed
-    /// </summary>
-    public Data.SubscribedVideoList GetSubscribed()
-    {
-      return this.GetSubscribed(null, null);
-    }
-
-    /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.getAdsStatus
     /// </summary>
-    public Data.VideoAdsStatus GetAdsStatus(string videoId)
+    public Data.AdsStatus GetAdsStatus(string videoId)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_id", videoId);
 
-      return this.Service.ExecuteHttpRequest<Videos.GetAdsStatus, Data.VideoAdsStatus>(parameters);
+      return this.Service.ExecuteHttpRequest<Videos.GetAdsStatus, Data.AdsStatus>(parameters);
     }
 
     /// <summary>
@@ -377,72 +435,28 @@ namespace Viddler.Videos
     }
 
     /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.favorite
-    /// </summary>
-    public bool Favorite(string videoId)
-    {
-      StringDictionary parameters = new StringDictionary();
-      parameters.Add("video_id", videoId);
-
-      ViddlerResponseSuccess responseObject = this.Service.ExecuteHttpRequest<Videos.Favorite, ViddlerResponseSuccess>(parameters);
-      return (responseObject != null && responseObject.IsSuccess);
-    }
-
-    /// <summary>
-    /// Calls the remote Viddler API method: viddler.videos.unfavorite
-    /// </summary>
-    public bool Unfavorite(string videoId)
-    {
-      StringDictionary parameters = new StringDictionary();
-      parameters.Add("video_id", videoId);
-
-      ViddlerResponseSuccess responseObject = this.Service.ExecuteHttpRequest<Videos.Unfavorite, ViddlerResponseSuccess>(parameters);
-      return (responseObject != null && responseObject.IsSuccess);
-    }
-
-    /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.setDetails
     /// </summary>
     public Data.Video SetDetails(
-      string videoId, string title, string description, int? ageLimit, string tags,
-      Data.VideoPermissionLevel? viewPermission, string viewUsers, string viewUseSecret,
-      Data.VideoPermissionLevel? embedPermission, string embedUsers,
-      Data.VideoPermissionLevel? commentingPermission, string commentingUsers,
-      Data.VideoPermissionLevel? downloadPermission, string downloadUsers,
-      Data.VideoPermissionLevel? taggingPermission, string taggingUsers)
+      string videoId, string title, string description, int? ageLimit, string tags, bool? viewResetSecret, int? thumbnailIndex,
+      Data.PermissionLevel? viewPermission, Data.PermissionLevel? embedPermission,
+      Data.PermissionLevel? commentingPermission, Data.PermissionLevel? downloadPermission,
+      Data.PermissionLevel? taggingPermission, Data.CommentsModerationLevel? commentsModerationLevel)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_id", videoId);
-      if (title != null) parameters.Add("title", title);
+      if (!string.IsNullOrEmpty(title)) parameters.Add("title", title);
       if (description != null) parameters.Add("description", description);
       if (ageLimit.HasValue) parameters.Add("age_limit", ageLimit.Value.ToString(CultureInfo.InvariantCulture));
+      if (thumbnailIndex.HasValue) parameters.Add("thumbnail_index", thumbnailIndex.Value.ToString(CultureInfo.InvariantCulture));
+      if (viewResetSecret.HasValue) parameters.Add("view_reset_secret", viewResetSecret.Value ? "1" : "0");
       if (tags != null) parameters.Add("tags", tags);
-      if (viewPermission.HasValue)
-      {
-        parameters.Add("view_perm", ViddlerHelper.GetEnumName(viewPermission.Value.GetType().GetField(viewPermission.Value.ToString())));
-        if (viewUsers != null) parameters.Add("view_users", viewUsers);
-        if (viewUseSecret != null) parameters.Add("view_use_secret", viewUseSecret);
-      }
-      if (embedPermission.HasValue)
-      {
-        parameters.Add("embed_perm", ViddlerHelper.GetEnumName(embedPermission.Value.GetType().GetField(embedPermission.Value.ToString())));
-        if (embedUsers != null) parameters.Add("embed_users", embedUsers);
-      }
-      if (commentingPermission.HasValue)
-      {
-        parameters.Add("commenting_perm", ViddlerHelper.GetEnumName(commentingPermission.Value.GetType().GetField(commentingPermission.Value.ToString())));
-        if (commentingUsers != null) parameters.Add("commenting_users", commentingUsers);
-      }
-      if (downloadPermission.HasValue)
-      {
-        parameters.Add("download_perm", ViddlerHelper.GetEnumName(downloadPermission.Value.GetType().GetField(downloadPermission.Value.ToString())));
-        if (downloadUsers != null) parameters.Add("download_users", downloadUsers);
-      }
-      if (taggingPermission.HasValue)
-      {
-        parameters.Add("tagging_perm", ViddlerHelper.GetEnumName(taggingPermission.Value.GetType().GetField(taggingPermission.Value.ToString())));
-        if (taggingUsers != null) parameters.Add("tagging_users", taggingUsers);
-      }
+      if (viewPermission.HasValue) parameters.Add("view_perm", ViddlerHelper.GetEnumName(viewPermission.Value.GetType().GetField(viewPermission.Value.ToString())));
+      if (embedPermission.HasValue) parameters.Add("embed_perm", ViddlerHelper.GetEnumName(embedPermission.Value.GetType().GetField(embedPermission.Value.ToString())));
+      if (commentingPermission.HasValue) parameters.Add("commenting_perm", ViddlerHelper.GetEnumName(commentingPermission.Value.GetType().GetField(commentingPermission.Value.ToString())));
+      if (downloadPermission.HasValue) parameters.Add("download_perm", ViddlerHelper.GetEnumName(downloadPermission.Value.GetType().GetField(downloadPermission.Value.ToString())));
+      if (taggingPermission.HasValue) parameters.Add("tagging_perm", ViddlerHelper.GetEnumName(taggingPermission.Value.GetType().GetField(taggingPermission.Value.ToString())));
+      if (commentsModerationLevel.HasValue) parameters.Add("comments_moderation_level", ViddlerHelper.GetEnumName(commentsModerationLevel.Value.GetType().GetField(commentsModerationLevel.Value.ToString())));
 
       return this.Service.ExecuteHttpRequest<Videos.SetDetails, Data.Video>(parameters);
     }
@@ -450,15 +464,45 @@ namespace Viddler.Videos
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.setDetails
     /// </summary>
-    public Data.Video SetDetails(string videoId, int? fileFlashProfile, bool? fileFlashEnabled, int? fileIPhoneProfile, bool? fileIPhoneEnabled, int? fileIPadProfile, bool? fileIPadEnabled)
+    public Data.Video SetDetails(string videoId, string videoFileId, bool? fileFlashEnabled, bool? fileIPhoneEnabled, bool? fileIPadEnabled)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_id", videoId);
-      if (fileFlashProfile.HasValue && fileFlashEnabled.HasValue) parameters.Add(string.Concat("file_", fileFlashProfile.Value, "_flash"), fileFlashEnabled.Value ? "1" : "0");
-      if (fileIPhoneProfile.HasValue && fileIPhoneEnabled.HasValue) parameters.Add(string.Concat("file_", fileIPhoneProfile.Value, "_iphone"), fileIPhoneEnabled.Value ? "1" : "0");
-      if (fileIPadProfile.HasValue && fileIPadEnabled.HasValue) parameters.Add(string.Concat("file_", fileIPadProfile.Value, "_ipad"), fileIPadEnabled.Value ? "1" : "0");
+      if (fileFlashEnabled.HasValue) parameters.Add(string.Concat("file_", videoFileId, "_flash"), fileFlashEnabled.Value ? "1" : "0");
+      if (fileIPhoneEnabled.HasValue) parameters.Add(string.Concat("file_", videoFileId, "_iphone"), fileIPhoneEnabled.Value ? "1" : "0");
+      if (fileIPadEnabled.HasValue) parameters.Add(string.Concat("file_", videoFileId, "_ipad"), fileIPadEnabled.Value ? "1" : "0");
 
       return this.Service.ExecuteHttpRequest<Videos.SetDetails, Data.Video>(parameters);
+    }
+
+    /// <summary>
+    /// Calls the remote Viddler API method: viddler.videos.setDetails
+    /// </summary>
+    public bool SetDetailsForMany(
+      string videoIds, bool? viewResetSecret, int? thumbnailIndex,
+      Data.PermissionLevel? viewPermission, Data.PermissionLevel? embedPermission,
+      Data.PermissionLevel? commentingPermission, Data.PermissionLevel? downloadPermission,
+      Data.PermissionLevel? taggingPermission)
+    {
+      StringDictionary parameters = new StringDictionary();
+      if (string.IsNullOrEmpty(videoIds) || videoIds.IndexOf(',') == -1)
+      {
+        parameters.Add("video_id", string.Concat(videoIds, ",", videoIds));
+      }
+      else
+      {
+        parameters.Add("video_id", videoIds);
+      }
+      if (thumbnailIndex.HasValue) parameters.Add("thumbnail_index", thumbnailIndex.Value.ToString(CultureInfo.InvariantCulture));
+      if (viewResetSecret.HasValue) parameters.Add("view_reset_secret", viewResetSecret.Value ? "1" : "0");
+      if (viewPermission.HasValue) parameters.Add("view_perm", ViddlerHelper.GetEnumName(viewPermission.Value.GetType().GetField(viewPermission.Value.ToString())));
+      if (embedPermission.HasValue) parameters.Add("embed_perm", ViddlerHelper.GetEnumName(embedPermission.Value.GetType().GetField(embedPermission.Value.ToString())));
+      if (commentingPermission.HasValue) parameters.Add("commenting_perm", ViddlerHelper.GetEnumName(commentingPermission.Value.GetType().GetField(commentingPermission.Value.ToString())));
+      if (downloadPermission.HasValue) parameters.Add("download_perm", ViddlerHelper.GetEnumName(downloadPermission.Value.GetType().GetField(downloadPermission.Value.ToString())));
+      if (taggingPermission.HasValue) parameters.Add("tagging_perm", ViddlerHelper.GetEnumName(taggingPermission.Value.GetType().GetField(taggingPermission.Value.ToString())));
+
+      ViddlerResponseSuccess responseObject = this.Service.ExecuteHttpRequest<Videos.SetDetailsForMany, ViddlerResponseSuccess>(parameters);
+      return (responseObject != null && responseObject.IsSuccess);
     }
 
     /// <summary>
@@ -487,33 +531,33 @@ namespace Viddler.Videos
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.enableAds
     /// </summary>
-    public Data.VideoAdsResult EnableAds(string videoIds)
+    public Data.AdsResult EnableAds(string videoIds)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_ids", videoIds);
 
-      return this.Service.ExecuteHttpRequest<Videos.EnableAds, Data.VideoAdsResult>(parameters);
+      return this.Service.ExecuteHttpRequest<Videos.EnableAds, Data.AdsResult>(parameters);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.disableAds
     /// </summary>
-    public Data.VideoAdsResult DisableAds(string videoIds)
+    public Data.AdsResult DisableAds(string videoIds)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_ids", videoIds);
 
-      return this.Service.ExecuteHttpRequest<Videos.DisableAds, Data.VideoAdsResult>(parameters);
+      return this.Service.ExecuteHttpRequest<Videos.DisableAds, Data.AdsResult>(parameters);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.setThumbnail
     /// </summary>
-    public Data.Video SetThumbnail(string videoId, bool timePoint)
+    public Data.Video SetThumbnail(string videoId, int timePoint)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("video_id", videoId);
-      parameters.Add("timepoint", timePoint ? "1" : "0");
+      parameters.Add("timepoint", timePoint.ToString(CultureInfo.InvariantCulture));
 
       return this.Service.ExecuteHttpRequest<Videos.SetThumbnail, Data.Video>(parameters);
     }

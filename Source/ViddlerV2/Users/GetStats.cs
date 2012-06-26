@@ -10,7 +10,7 @@ namespace Viddler.Users
   /// This class is not intended to be used in your code in any way.
   /// </remarks>
   [ViddlerMethod(MethodName = "viddler.users.getStats", ElementName = "user_stats", IsSecure = false, IsSessionRequired = true, RequestType = ViddlerRequestType.Get)]
-  public class GetStats : Viddler.Data.UserStats
+  public class GetStats : Viddler.Data.Statistics
   {
   }
 }

@@ -10,7 +10,7 @@ namespace Viddler.Encoding
   /// This class is not intended to be used in your code in any way.
   /// </remarks>
   [ViddlerMethod(MethodName = "viddler.encoding.cancel", ElementName = "list_result", IsSecure = false, IsSessionRequired = true, RequestType = ViddlerRequestType.Post)]
-  public class Cancel : Viddler.Data.EncodingStatus
+  public class Cancel : Viddler.Data.VideoEncodingList
   {
   }
 }

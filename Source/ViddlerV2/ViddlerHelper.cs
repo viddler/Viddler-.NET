@@ -18,52 +18,6 @@ namespace Viddler
   internal static class ViddlerHelper
   {
     /// <summary>
-    /// Returns MIME type of the specified file type using urlmon.dll library.
-    /// </summary>
-    [DllImport(@"urlmon.dll", CharSet = CharSet.Auto)]
-    private extern static UInt32 FindMimeFromData(
-        UInt32 pBC,
-        [MarshalAs(UnmanagedType.LPStr)] string pwzUrl,
-        [MarshalAs(UnmanagedType.LPArray)] byte[] pBuffer,
-        UInt32 cbSize,
-        [MarshalAs(UnmanagedType.LPStr)] string pwzMimeProposed,
-        UInt32 dwMimeFlags,
-        out UInt32 ppwzMimeOut,
-        UInt32 dwReserverd
-    );
-
-    /// <summary>
-    /// Returns MIME type of the specified file.
-    /// </summary>
-    internal static string GetMimeType(Stream fileStream)
-    {
-      string mime = string.Empty;
-      byte[] buffer = new byte[256];
-      if (fileStream.Length >= 256)
-      {
-        fileStream.Read(buffer, 0, 256);
-      }
-      else
-      {
-        fileStream.Read(buffer, 0, (int)fileStream.Length);
-      }
-      try
-      {
-        UInt32 mimeType;
-        ViddlerHelper.FindMimeFromData(0, null, buffer, 256, null, 0, out mimeType, 0);
-        IntPtr mimeTypePtr = new IntPtr(mimeType);
-        mime = Marshal.PtrToStringUni(mimeTypePtr);
-        Marshal.FreeCoTaskMem(mimeTypePtr);
-      }
-      catch {}
-      if (string.IsNullOrEmpty(mime))
-      {
-        mime = "application/octet-stream";
-      }
-      return mime;
-    }
-
-    /// <summary>
     /// Escapes request parameter values.
     /// </summary>
     internal static string EncodeRequestData(string data)

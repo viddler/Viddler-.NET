@@ -1,2 +1,6 @@
 ﻿Version 1.0.0.0 (2010-10-15)
 - Initial release
+
+Version 3.9.0.0 (2012-05-20)
+- Bugfixes from previous release
+- Viddler API 2 version 3.9.0 compliant

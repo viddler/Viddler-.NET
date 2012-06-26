@@ -17,30 +17,27 @@ namespace Viddler.Api
     /// <summary>
     /// Initializes a new instance of ApiNamespaceWrapper class.
     /// </summary>
-    internal ApiNamespaceWrapper(ViddlerService service)
-      : base(service)
+    internal ApiNamespaceWrapper(ViddlerService service) : base(service)
     {
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.api.echo
     /// </summary>
-    public string Echo(string message)
+    public Data.EchoMessage Echo(string message)
     {
       StringDictionary parameters = new StringDictionary();
       parameters.Add("message", message);
 
-      Data.EchoMessage responseObject = this.Service.ExecuteHttpRequest<Api.Echo, Data.EchoMessage>(parameters);
-      return (responseObject != null) ? responseObject.Message : null;
+      return this.Service.ExecuteHttpRequest<Api.Echo, Data.EchoMessage>(parameters);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.api.getInfo
     /// </summary>
-    public string GetVersion()
+    public Data.ApiInfo GetInfo()
     {
-      Data.ApiInfo responseObject = this.Service.ExecuteHttpRequest<Api.GetInfo, Data.ApiInfo>(null);
-      return (responseObject != null) ? responseObject.Version : null;
+      return this.Service.ExecuteHttpRequest<Api.GetInfo, Data.ApiInfo>(null);
     }
   }
 }

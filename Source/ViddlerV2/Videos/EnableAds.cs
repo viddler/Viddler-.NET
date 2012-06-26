@@ -10,7 +10,7 @@ namespace Viddler.Videos
   /// This class is not intended to be used in your code in any way.
   /// </remarks>
   [ViddlerMethod(MethodName = "viddler.videos.enableAds", ElementName = "result", IsSecure = false, IsSessionRequired = true, RequestType = ViddlerRequestType.Post)]
-  public class EnableAds : Viddler.Data.VideoAdsResult
+  public class EnableAds : Viddler.Data.AdsResult
   {
   }
 }

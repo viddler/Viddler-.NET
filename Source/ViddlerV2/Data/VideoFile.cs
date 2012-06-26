@@ -100,50 +100,20 @@ namespace Viddler.Data
     }
 
     /// <summary>
+    /// Corresponds to the remote Viddler API field "display_apsect_ratio"
+    /// </summary>
+    [XmlElement(ElementName = "display_apsect_ratio")]
+    public string DisplayApsectRatio
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
     /// Corresponds to the remote Viddler API field "source"
     /// </summary>
     [XmlElement(ElementName = "source")]
     public bool? Source
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "profile_id"
-    /// </summary>
-    [XmlElement(ElementName = "profile_id")]
-    public string ProfileId
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "video_id"
-    /// </summary>
-    [XmlElement(ElementName = "video_id")]
-    public string VideoId
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "encoding_progress"
-    /// </summary>
-    [XmlElement(ElementName = "encoding_progress")]
-    public int? EncodingProgress
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "encoding_status"
-    /// </summary>
-    [XmlElement(ElementName = "encoding_status")]
-    public VideoFileEncodingStatus? EncodingStatus
     {
       get;
       set;
@@ -184,6 +154,16 @@ namespace Viddler.Data
     /// </summary>
     [XmlElement(ElementName = "itunes")]
     public VideoFileSourceStatus? ITunes
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "profile_id"
+    /// </summary>
+    [XmlElement(ElementName = "profile_id")]
+    public string ProfileId
     {
       get;
       set;

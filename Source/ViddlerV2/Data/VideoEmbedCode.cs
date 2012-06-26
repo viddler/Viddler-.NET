@@ -23,7 +23,7 @@ namespace Viddler.Data
     /// Corresponds to the remote Viddler API field "embed_code"
     /// </summary>
     [XmlElement(ElementName = "embed_code")]
-    public string Code
+    public string EmbedCode
     {
       get;
       set;

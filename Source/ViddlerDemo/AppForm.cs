@@ -105,7 +105,7 @@ namespace ViddlerDemo
 
       this.actionPanel.SetUploadProgress(0, true);
 
-      Viddler.Data.Video newVideo = viddlerService.Videos.Upload("Just uploaded", "test,sample", "Test file", false, fileName, true);
+      Viddler.Data.Video newVideo = viddlerService.Videos.Upload("Just uploaded", "test,sample", "Test file", false, fileName);
 
       this.actionPanel.SetUploadProgress(100, false);
 
@@ -212,7 +212,7 @@ namespace ViddlerDemo
           {
             viddlerService = this.GetVidlerService();
           }
-          if (viddlerService.Videos.SetDetails(item.Id, item.Title, item.Description, null, null, null, null, null, null, null, null, null, null, null, null, null) != null)
+          if (viddlerService.Videos.SetDetails(item.Id, item.Title, item.Description, null, null, null, null, null, null, null, null, null, null) != null)
           {
             item.IsChanged = false;
             isUpdated = true;

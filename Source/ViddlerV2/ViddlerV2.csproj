@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -12,27 +12,10 @@
     <AssemblyName>ViddlerV2</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Properties\ViddlerV2.snk</AssemblyOriginatorKeyFile>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,7 +29,6 @@
     <DocumentationFile>bin\ViddlerV2.xml</DocumentationFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -60,7 +42,6 @@
     <DocumentationFile>bin\ViddlerV2.xml</DocumentationFile>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -72,26 +53,44 @@
     <Compile Include="Api\ApiNamespaceWrapper.cs" />
     <Compile Include="Api\Echo.cs" />
     <Compile Include="Api\GetInfo.cs" />
+    <Compile Include="Data\AdsResult.cs" />
+    <Compile Include="Data\AdsStatus.cs" />
+    <Compile Include="Data\AdsStatusList.cs" />
     <Compile Include="Data\ApiInfo.cs" />
-    <Compile Include="Data\Warning.cs" />
+    <Compile Include="Data\ClosedCaptioning.cs" />
+    <Compile Include="Data\Comment.cs" />
+    <Compile Include="Data\CommentList.cs" />
+    <Compile Include="Data\CommentListSortType.cs" />
+    <Compile Include="Data\CommentsModeration.cs" />
+    <Compile Include="Data\CommentsModerationLevel.cs" />
+    <Compile Include="Data\CommentsModerationList.cs" />
+    <Compile Include="Data\CommentsModerationSettings.cs" />
+    <Compile Include="Data\CommentsModerationStatus.cs" />
+    <Compile Include="Data\CommentsVideoReply.cs" />
+    <Compile Include="Data\ComscoreSettings.cs" />
     <Compile Include="Data\DataObjectBase.cs" />
     <Compile Include="Data\EchoMessage.cs" />
-    <Compile Include="Data\EncodingOptions.cs" />
     <Compile Include="Data\EncodingProfile.cs" />
+    <Compile Include="Data\EncodingSettings.cs" />
     <Compile Include="Data\EncodingStatus.cs" />
-    <Compile Include="Data\FavoriteList.cs" />
     <Compile Include="Data\FeaturedVideo.cs" />
     <Compile Include="Data\FeaturedVideoList.cs" />
     <Compile Include="Data\FeaturedVideoListSortType.cs" />
-    <Compile Include="Data\FriendList.cs" />
-    <Compile Include="Data\FriendRequest.cs" />
-    <Compile Include="Data\FriendRequestList.cs" />
-    <Compile Include="Data\Friends.cs" />
-    <Compile Include="Data\FriendVideoList.cs" />
-    <Compile Include="Data\Group.cs" />
-    <Compile Include="Data\GroupList.cs" />
-    <Compile Include="Data\GroupVideoList.cs" />
-    <Compile Include="Data\PartnerVideoList.cs" />
+    <Compile Include="Data\ImageAlignmentType.cs" />
+    <Compile Include="Data\ITunesFeedStatus.cs" />
+    <Compile Include="Data\ITunesSettings.cs" />
+    <Compile Include="Data\LiverailSettings.cs" />
+    <Compile Include="Data\Metadata.cs" />
+    <Compile Include="Data\NotificationSettings.cs" />
+    <Compile Include="Data\PaymentSetup.cs" />
+    <Compile Include="Data\PaymentType.cs" />
+    <Compile Include="Data\PendingPlan.cs" />
+    <Compile Include="Data\Permission.cs" />
+    <Compile Include="Data\PermissionLevel.cs" />
+    <Compile Include="Data\PermissionSettings.cs" />
+    <Compile Include="Data\PlayerBranding.cs" />
+    <Compile Include="Data\PlayerType.cs" />
+    <Compile Include="Data\PlayerWindowMode.cs" />
     <Compile Include="Data\Playlist.cs" />
     <Compile Include="Data\PlaylistList.cs" />
     <Compile Include="Data\PlaylistRules.cs" />
@@ -100,55 +99,53 @@
     <Compile Include="Data\PlaylistVideoList.cs" />
     <Compile Include="Data\PlaylistVisibilityType.cs" />
     <Compile Include="Data\RecordToken.cs" />
-    <Compile Include="Data\SubscribedList.cs" />
-    <Compile Include="Data\SubscribedVideoList.cs" />
+    <Compile Include="Data\ResellerStatus.cs" />
+    <Compile Include="Data\Statistics.cs" />
+    <Compile Include="Data\StatisticsComments.cs" />
+    <Compile Include="Data\StatisticsUsage.cs" />
+    <Compile Include="Data\StatisticsUsers.cs" />
+    <Compile Include="Data\StatisticsVideos.cs" />
+    <Compile Include="Data\Subaccount.cs" />
+    <Compile Include="Data\SubaccountList.cs" />
+    <Compile Include="Data\SubaccountPlan.cs" />
+    <Compile Include="Data\Tag.cs" />
+    <Compile Include="Data\TagType.cs" />
     <Compile Include="Data\UnixTimeStamp.cs" />
     <Compile Include="Data\UploadEndPoint.cs" />
+    <Compile Include="Data\UploadProgress.cs" />
+    <Compile Include="Data\UploadStatus.cs" />
     <Compile Include="Data\User.cs" />
-    <Compile Include="Data\UserGender.cs" />
-    <Compile Include="Data\UserList.cs" />
-    <Compile Include="Data\UserListType.cs" />
+    <Compile Include="Data\UserPlan.cs" />
     <Compile Include="Data\UserSession.cs" />
     <Compile Include="Data\UserSettings.cs" />
-    <Compile Include="Data\UserStats.cs" />
-    <Compile Include="Data\UserStatsUsage.cs" />
-    <Compile Include="Data\UserStatsUsers.cs" />
-    <Compile Include="Data\UserStatsVideos.cs" />
+    <Compile Include="Data\UserStatus.cs" />
     <Compile Include="Data\Video.cs" />
-    <Compile Include="Data\VideoAdsResult.cs" />
-    <Compile Include="Data\VideoAdsStatus.cs" />
-    <Compile Include="Data\VideoAdsStatusList.cs" />
     <Compile Include="Data\VideoComment.cs" />
+    <Compile Include="Data\VideoDeliveryMethod.cs" />
     <Compile Include="Data\VideoEmbedCode.cs" />
     <Compile Include="Data\VideoEmbedCodeType.cs" />
     <Compile Include="Data\VideoEmbedCodeTypeList.cs" />
+    <Compile Include="Data\VideoEncoding.cs" />
+    <Compile Include="Data\VideoEncodingList.cs" />
     <Compile Include="Data\VideoFile.cs" />
+    <Compile Include="Data\VideoFileEncoding.cs" />
     <Compile Include="Data\VideoFileEncodingStatus.cs" />
     <Compile Include="Data\VideoFileSourceStatus.cs" />
     <Compile Include="Data\VideoFileStatus.cs" />
     <Compile Include="Data\VideoList.cs" />
     <Compile Include="Data\VideoListSortType.cs" />
-    <Compile Include="Data\VideoPermission.cs" />
-    <Compile Include="Data\VideoPermissionLevel.cs" />
-    <Compile Include="Data\VideoPermissionSettings.cs" />
     <Compile Include="Data\VideoStatus.cs" />
-    <Compile Include="Data\VideoTag.cs" />
-    <Compile Include="Data\VideoTagType.cs" />
+    <Compile Include="Data\Warning.cs" />
     <Compile Include="Encoding\Cancel.cs" />
     <Compile Include="Encoding\Encode.cs" />
     <Compile Include="Encoding\EncodingNamespaceWrapper.cs" />
-    <Compile Include="Encoding\GetOptions.cs" />
+    <Compile Include="Encoding\GetSettings.cs" />
     <Compile Include="Encoding\GetStatus.cs" />
-    <Compile Include="Encoding\SetOptions.cs" />
-    <Compile Include="Groups\AddVideo.cs" />
-    <Compile Include="Groups\GetByTag.cs" />
-    <Compile Include="Groups\GetByUser.cs" />
-    <Compile Include="Groups\GetByVideo.cs" />
-    <Compile Include="Groups\GetVideos.cs" />
-    <Compile Include="Groups\GroupsNamespaceWrapper.cs" />
-    <Compile Include="Groups\Join.cs" />
-    <Compile Include="Groups\Leave.cs" />
-    <Compile Include="Groups\RemoveVideo.cs" />
+    <Compile Include="Encoding\GetStatus2.cs" />
+    <Compile Include="Encoding\SetSettings.cs" />
+    <Compile Include="Moderation\GetComments.cs" />
+    <Compile Include="Moderation\ModerationNamespaceWrapper.cs" />
+    <Compile Include="Moderation\SetCommentStatus.cs" />
     <Compile Include="Playlists\AddVideo.cs" />
     <Compile Include="Playlists\Create.cs" />
     <Compile Include="Playlists\Delete.cs" />
@@ -160,23 +157,19 @@
     <Compile Include="Playlists\RemoveVideo.cs" />
     <Compile Include="Playlists\SetDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users\AcceptFriendRequest.cs" />
+    <Compile Include="Resellers\GetSubaccounts.cs" />
+    <Compile Include="Resellers\RemoveSubaccounts.cs" />
+    <Compile Include="Resellers\ResellersNamespaceWrapper.cs" />
     <Compile Include="Users\Auth.cs" />
-    <Compile Include="Users\GetFriendRequests.cs" />
-    <Compile Include="Users\GetFriends.cs" />
+    <Compile Include="Users\GetPlayerBranding.cs" />
     <Compile Include="Users\GetProfile.cs" />
     <Compile Include="Users\GetSettings.cs" />
     <Compile Include="Users\GetStats.cs" />
-    <Compile Include="Users\GetSubscribed.cs" />
-    <Compile Include="Users\IgnoreFriendRequest.cs" />
+    <Compile Include="Users\Logout.cs" />
     <Compile Include="Users\Register .cs" />
-    <Compile Include="Users\RemoveFriend.cs" />
-    <Compile Include="Users\Search.cs" />
-    <Compile Include="Users\SendFriendRequest.cs" />
+    <Compile Include="Users\SetPlayerBranding.cs" />
     <Compile Include="Users\SetProfile.cs" />
     <Compile Include="Users\SetSettings.cs" />
-    <Compile Include="Users\Subscribe.cs" />
-    <Compile Include="Users\Unsubscribe.cs" />
     <Compile Include="Users\UsersNamespaceWrapper.cs" />
     <Compile Include="ViddlerNamespaceProvider.cs" />
     <Compile Include="ViddlerConfigurationSection.cs" />
@@ -190,31 +183,34 @@
     <Compile Include="ViddlerResponseError.cs" />
     <Compile Include="ViddlerResponseSuccess.cs" />
     <Compile Include="ViddlerService.cs" />
+    <Compile Include="Videos\AddClosedCaptioning.cs" />
+    <Compile Include="Videos\Comments\Add.cs" />
+    <Compile Include="Videos\Comments\CommentsNamespaceWrapper.cs" />
+    <Compile Include="Videos\Comments\Delete.cs" />
+    <Compile Include="Videos\Comments\Get.cs" />
+    <Compile Include="Videos\DelClosedCaptioning.cs" />
     <Compile Include="Videos\Delete.cs" />
     <Compile Include="Videos\DelFile.cs" />
     <Compile Include="Videos\DisableAds.cs" />
     <Compile Include="Videos\EnableAds.cs" />
-    <Compile Include="Videos\Favorite.cs" />
     <Compile Include="Videos\GetAdsStatus.cs" />
     <Compile Include="Videos\GetByTag.cs" />
     <Compile Include="Videos\GetByUser.cs" />
     <Compile Include="Videos\GetDetails.cs" />
     <Compile Include="Videos\GetEmbedCode.cs" />
     <Compile Include="Videos\GetEmbedCodeTypes.cs" />
-    <Compile Include="Videos\GetFavorites.cs" />
     <Compile Include="Videos\GetFeatured.cs" />
-    <Compile Include="Videos\GetFriendsVideos.cs" />
-    <Compile Include="Videos\GetPartner.cs" />
     <Compile Include="Videos\GetRecordToken.cs" />
-    <Compile Include="Videos\GetSubscribed.cs" />
     <Compile Include="Videos\PrepareUpload.cs" />
+    <Compile Include="Videos\Search.cs" />
+    <Compile Include="Videos\SetClosedCaptioning.cs" />
     <Compile Include="Videos\SetDetails.cs" />
+    <Compile Include="Videos\SetDetailsForMany.cs" />
     <Compile Include="Videos\SetPermaLink.cs" />
     <Compile Include="Videos\SetThumbnail.cs" />
     <Compile Include="Videos\SetThumbnailFile.cs" />
-    <Compile Include="Videos\Unfavorite.cs" />
     <Compile Include="Videos\Upload.cs" />
-    <Compile Include="Videos\UserStatsComments.cs" />
+    <Compile Include="Videos\UploadProgress.cs" />
     <Compile Include="Videos\VideosNamespaceWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,23 +220,6 @@
   <ItemGroup>
     <None Include="ChangeLog.txt">
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

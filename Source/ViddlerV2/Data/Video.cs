@@ -18,9 +18,10 @@ namespace Viddler.Data
     public Video()
     {
       this.Files = new List<VideoFile>();
-      this.Permission = new VideoPermissionSettings();
-      this.Tags = new List<VideoTag>();
+      this.Permission = new PermissionSettings();
+      this.Tags = new List<Tag>();
       this.Comments = new List<VideoComment>();
+      this.ClosedCaptionings = new List<ClosedCaptioning>();
     }
 
     /// <summary>
@@ -28,46 +29,6 @@ namespace Viddler.Data
     /// </summary>
     [XmlElement(ElementName = "id")]
     public string Id
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "title"
-    /// </summary>
-    [XmlElement(ElementName = "title")]
-    public string Title
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "description"
-    /// </summary>
-    [XmlElement(ElementName = "description")]
-    public string Description
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "url"
-    /// </summary>
-    [XmlElement(ElementName = "url")]
-    public string Url
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "thumbnail_url"
-    /// </summary>
-    [XmlElement(ElementName = "thumbnail_url")]
-    public string ThumbnailUrl
     {
       get;
       set;
@@ -94,10 +55,90 @@ namespace Viddler.Data
     }
 
     /// <summary>
+    /// Corresponds to the remote Viddler API field "user"
+    /// </summary>
+    [XmlElement(ElementName = "user")]
+    public User User
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "title"
+    /// </summary>
+    [XmlElement(ElementName = "title")]
+    public string Title
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
     /// Corresponds to the remote Viddler API field "length"
     /// </summary>
     [XmlElement(ElementName = "length")]
     public int? Length
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "description"
+    /// </summary>
+    [XmlElement(ElementName = "description")]
+    public string Description
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "age_limit"
+    /// </summary>
+    [XmlElement(ElementName = "age_limit")]
+    public int? AgeLimit
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "url"
+    /// </summary>
+    [XmlElement(ElementName = "url")]
+    public string Url
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "thumbnail_url"
+    /// </summary>
+    [XmlElement(ElementName = "thumbnail_url")]
+    public string ThumbnailUrl
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "thumbnails_count"
+    /// </summary>
+    [XmlElement(ElementName = "thumbnails_count")]
+    public int? ThumbnailsCount
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "thumbnail_index"
+    /// </summary>
+    [XmlElement(ElementName = "thumbnail_index")]
+    public int? ThumbnailIndex
     {
       get;
       set;
@@ -124,20 +165,20 @@ namespace Viddler.Data
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "embed_code"
+    /// Corresponds to the remote Viddler API field "view_count"
     /// </summary>
-    [XmlElement(ElementName = "embed_code")]
-    public string EmbedCode
+    [XmlElement(ElementName = "view_count")]
+    public int? ViewCount
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "view_count"
+    /// Corresponds to the remote Viddler API field "impression_count"
     /// </summary>
-    [XmlElement(ElementName = "view_count")]
-    public int? ViewCount
+    [XmlElement(ElementName = "impression_count")]
+    public int? ImpressionCount
     {
       get;
       set;
@@ -184,10 +225,62 @@ namespace Viddler.Data
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "age_limit"
+    /// Corresponds to the remote Viddler API field "tags"
     /// </summary>
-    [XmlElement(ElementName = "age_limit")]
-    public int? AgeLimit
+    [XmlArray(ElementName = "tags")]
+    [XmlArrayItem(ElementName = "tag")]
+    public List<Tag> Tags
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "embed_code"
+    /// </summary>
+    [XmlElement(ElementName = "embed_code")]
+    public string EmbedCode
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "comments"
+    /// </summary>
+    [XmlArray(ElementName = "comments")]
+    [XmlArrayItem(ElementName = "comment")]
+    public List<VideoComment> Comments
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "permissions"
+    /// </summary>
+    [XmlElement(ElementName = "permissions")]
+    public PermissionSettings Permission
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "comments_moderation"
+    /// </summary>
+    [XmlElement(ElementName = "comments_moderation")]
+    public CommentsModeration CommentsModeration
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Corresponds to the remote Viddler API field "display_apsect_ratio"
+    /// </summary>
+    [XmlElement(ElementName = "display_apsect_ratio")]
+    public string DisplayApsectRatio
     {
       get;
       set;
@@ -205,32 +298,31 @@ namespace Viddler.Data
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "permissions"
+    /// Corresponds to the remote Viddler API field "closed_captioning_list"
     /// </summary>
-    [XmlElement(ElementName = "permissions")]
-    public VideoPermissionSettings Permission
+    [XmlArray(ElementName = "closed_captioning_list")]
+    [XmlArrayItem(ElementName = "closed_captioning")]
+    public List<ClosedCaptioning> ClosedCaptionings
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "tags"
+    /// Corresponds to the remote Viddler API field "view_token"
     /// </summary>
-    [XmlArray(ElementName = "tags")]
-    [XmlArrayItem(ElementName = "tag")]
-    public List<VideoTag> Tags
+    [XmlElement(ElementName = "view_token")]
+    public string ViewToken
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "comments"
+    /// Corresponds to the remote Viddler API field "itunes_settings"
     /// </summary>
-    [XmlArray(ElementName = "comments")]
-    [XmlArrayItem(ElementName = "comment")]
-    public List<VideoComment> Comments
+    [XmlElement(ElementName = "itunes_settings")]
+    public ITunesSettings ITunes
     {
       get;
       set;

@@ -27,6 +27,22 @@ namespace Viddler
   public sealed class ViddlerConfigurationSection : ConfigurationSection
   {
     /// <summary>
+    /// Gets or sets a local path to dump service responses.
+    /// </summary>
+    [ConfigurationProperty("dumpFolder", IsRequired = false)]
+    public string DumpFolder
+    {
+      get
+      {
+        return base["dumpFolder"] as string;
+      }
+      set
+      {
+        base["dumpFolder"] = value;
+      }
+    }
+
+    /// <summary>
     /// Gets or sets a base HTTP URL for the remote Viddler API methods.
     /// </summary>
     [ConfigurationProperty("baseUrl", IsRequired = true)]

@@ -73,13 +73,20 @@ namespace Viddler
   ///         "sample,test",
   ///         "My new file",
   ///         true,
-  ///         @"c:\MyNewVideo.mpg",
-  ///         true);
-  ///       if (newVideo != null && newVideo.Status.HasValue)
+  ///         @"c:\MyNewVideo.mpg");
+  ///       if (newVideo != null)
   ///       {
-  ///         System.Console.WriteLine("Status: {0}", newVideo.Status.Value);
+  ///         System.Console.WriteLine("Id: {0}", newVideo.Id);
+  ///         System.Console.WriteLine("Title: {0}", newVideo.Title);
+  ///         System.Console.WriteLine("Url: {0}", newVideo.Url);
   ///         System.Console.WriteLine();
   ///       }
+  /// 
+  ///       if (service.IsAuthenticated)
+  ///       {
+  ///         service.Users.LogOut();
+  ///       }
+  /// 
   ///       System.Console.Read();
   ///     }
   /// 
@@ -128,10 +135,13 @@ namespace Viddler
     private Encoding.EncodingNamespaceWrapper encoding;
 
     /// <summary/>
-    private Groups.GroupsNamespaceWrapper groups;
+    private Playlists.PlaylistsNamespaceWrapper playlists;
 
     /// <summary/>
-    private Playlists.PlaylistsNamespaceWrapper playLists;
+    private Resellers.ResellersNamespaceWrapper resellers;
+
+    /// <summary/>
+    private Moderation.ModerationNamespaceWrapper moderation;
 
     #endregion
 
@@ -150,6 +160,7 @@ namespace Viddler
         this.SecureBaseUrl = settings.SecureBaseUrl;
         this.ApiKey = settings.ApiKey;
         this.EnableSsl = settings.EnableSsl;
+        this.DumpFolder = settings.DumpFolder;
       }
     }
 
@@ -170,32 +181,47 @@ namespace Viddler
     #region Public properties
 
     /// <summary>
+    /// Provides access to Viddler API methods located in viddler.moderation namespace.
+    /// </summary>
+    public Moderation.ModerationNamespaceWrapper Moderation
+    {
+      get
+      {
+        if (this.moderation == null)
+        {
+          this.moderation = new Moderation.ModerationNamespaceWrapper(this);
+        }
+        return this.moderation;
+      }
+    }
+
+    /// <summary>
+    /// Provides access to Viddler API methods located in viddler.resellers namespace.
+    /// </summary>
+    public Resellers.ResellersNamespaceWrapper Resellers
+    {
+      get
+      {
+        if (this.resellers == null)
+        {
+          this.resellers = new Resellers.ResellersNamespaceWrapper(this);
+        }
+        return this.resellers;
+      }
+    }
+
+    /// <summary>
     /// Provides access to Viddler API methods located in viddler.playlists namespace.
     /// </summary>
     public Playlists.PlaylistsNamespaceWrapper Playlists
     {
       get
       {
-        if (this.playLists == null)
+        if (this.playlists == null)
         {
-          this.playLists = new Playlists.PlaylistsNamespaceWrapper(this);
+          this.playlists = new Playlists.PlaylistsNamespaceWrapper(this);
         }
-        return this.playLists;
-      }
-    }
-
-    /// <summary>
-    /// Provides access to Viddler API methods located in viddler.groups namespace.
-    /// </summary>
-    public Groups.GroupsNamespaceWrapper Groups
-    {
-      get
-      {
-        if (this.groups == null)
-        {
-          this.groups = new Groups.GroupsNamespaceWrapper(this);
-        }
-        return this.groups;
+        return this.playlists;
       }
     }
 
@@ -291,6 +317,15 @@ namespace Viddler
     /// Gets or sets a base HTTPS URL for the remote Viddler API methods.
     /// </summary>
     public string SecureBaseUrl
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Gets or sets a local path to dump service responses.
+    /// </summary>
+    public string DumpFolder
     {
       get;
       set;
@@ -467,15 +502,13 @@ namespace Viddler
       long fileSize = endBoundaryBytes.Length;
       if (fileStream != null)
       {
-        string mimeType = ViddlerHelper.GetMimeType(fileStream);
         fileStream.Position = 0;
         if (string.IsNullOrEmpty(fileName))
         {
           fileName = DateTime.Now.Ticks.ToString("x", CultureInfo.InvariantCulture);
         }
         requestData.AddRange(boundaryBytes);
-        //requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"file\"; filename=\"{0}\"\r\nContent-Type: {1}\r\n\r\n", ViddlerHelper.EncodeRequestData(fileName), mimeType)));
-        requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"file\"; filename=\"{0}\"\r\nContent-Type: {1}\r\n\r\n", fileName, mimeType)));
+        requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"file\"; filename=\"{0}\"\r\nContent-Type: application/octet-stream\r\n\r\n", fileName)));
         fileSize += fileStream.Length;
       }
 
@@ -537,7 +570,7 @@ namespace Viddler
         }
         else
         {
-          DataType responseObject = ViddlerService.HandleHttpResponse<ContractType, DataType>(request, methodAttribute);
+          DataType responseObject = ViddlerService.HandleHttpResponse<ContractType, DataType>(request, methodAttribute, this.DumpFolder);
           return responseObject;
         }
       }
@@ -597,7 +630,7 @@ namespace Viddler
           requestStream.Flush();
         }
 
-        DataType responseObject = ViddlerService.HandleHttpResponse<ContractType, DataType>(request, methodAttribute);
+        DataType responseObject = ViddlerService.HandleHttpResponse<ContractType, DataType>(request, methodAttribute, this.DumpFolder);
         return responseObject;
       }
       catch (System.Net.WebException exception)
@@ -647,7 +680,7 @@ namespace Viddler
         request.Timeout = int.MaxValue;
         request.ReadWriteTimeout = int.MaxValue;
 
-        DataType responseObject = ViddlerService.HandleHttpResponse<ContractType, DataType>(request, methodAttribute);
+        DataType responseObject = ViddlerService.HandleHttpResponse<ContractType, DataType>(request, methodAttribute, this.DumpFolder);
         return responseObject;
       }
       catch (System.Net.WebException exception)
@@ -659,7 +692,7 @@ namespace Viddler
     /// <summary>
     /// Handles a web response from the remote server. 
     /// </summary>
-    private static DataType HandleHttpResponse<ContractType, DataType>(HttpWebRequest request, ViddlerMethodAttribute methodAttribute)
+    private static DataType HandleHttpResponse<ContractType, DataType>(HttpWebRequest request, ViddlerMethodAttribute methodAttribute, string dumpPath)
     {
       DataType responseObject = default(DataType);
       using (WebResponse response = request.GetResponse())
@@ -675,6 +708,11 @@ namespace Viddler
               count = responseStream.Read(buffer, 0, 1024);
               stream.Write(buffer, 0, count);
             } while (count > 0); // copy response stream to "seek-enabled" stream
+
+            if (!string.IsNullOrEmpty(dumpPath))
+            {
+              ViddlerService.DumpResposeToFile(dumpPath, stream, methodAttribute.MethodName, request.RequestUri.ToString());
+            }
 
             stream.Position = 0;
             string messageType = string.Empty;
@@ -774,6 +812,18 @@ namespace Viddler
         }
       }
       return exception;
+    }
+
+    /// <summary>
+    /// Dumps service response to a local XML file.
+    /// </summary>
+    private static void DumpResposeToFile(string dumpPath, Stream stream, string methodName, string requestUrl)
+    {
+      stream.Position = 0;
+      XmlDocument xml = new XmlDocument();
+      xml.PreserveWhitespace = true;
+      xml.Load(stream);
+      xml.Save(Path.Combine(dumpPath, string.Concat(methodName, ".", DateTime.Now.Ticks, ".xml")));
     }
 
     #endregion

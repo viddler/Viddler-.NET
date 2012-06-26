@@ -9,7 +9,7 @@ namespace Viddler.Videos
   /// <remarks>
   /// This class is not intended to be used in your code in any way.
   /// </remarks>
-  [ViddlerMethod(MethodName = "viddler.videos.setPermalink", ElementName = "video", IsSecure = false, IsSessionRequired = true, RequestType = ViddlerRequestType.Post)] //?RequestParameters
+  [ViddlerMethod(MethodName = "viddler.videos.setPermalink", ElementName = "video", IsSecure = false, IsSessionRequired = true, RequestType = ViddlerRequestType.Post)]
   public class SetPermaLink : Viddler.Data.Video
   {
   }

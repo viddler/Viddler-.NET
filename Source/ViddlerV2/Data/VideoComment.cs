@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace Viddler.Data
@@ -20,26 +22,6 @@ namespace Viddler.Data
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "status"
-    /// </summary>
-    [XmlElement(ElementName = "status")]
-    public VideoFileStatus? Status
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "ext"
-    /// </summary>
-    [XmlElement(ElementName = "ext")]
-    public string Extension
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
     /// Corresponds to the remote Viddler API field "type"
     /// </summary>
     [XmlElement(ElementName = "type")]
@@ -50,140 +32,90 @@ namespace Viddler.Data
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "width"
+    /// Corresponds to the remote Viddler API field "author"
     /// </summary>
-    [XmlElement(ElementName = "width")]
-    public int? Width
+    [XmlElement(ElementName = "author")]
+    public string Author
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "height"
+    /// Corresponds to the remote Viddler API field "rating"
     /// </summary>
-    [XmlElement(ElementName = "height")]
-    public int? Height
+    [XmlElement(ElementName = "rating")]
+    public int? Rating
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "size"
+    /// Corresponds to the remote Viddler API field "replies_count"
     /// </summary>
-    [XmlElement(ElementName = "size")]
-    public long? Size
+    [XmlElement(ElementName = "replies_count")]
+    public int? RepliesCount
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "url"
+    /// Corresponds to the remote Viddler API field "parent"
     /// </summary>
-    [XmlElement(ElementName = "url")]
-    public string Url
+    [XmlElement(ElementName = "parent")]
+    public string Parent
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "html5_video_source"
+    /// Corresponds to the remote Viddler API field "text"
     /// </summary>
-    [XmlElement(ElementName = "html5_video_source")]
-    public string Html5VideoSource
+    [XmlElement(ElementName = "text")]
+    public string Text
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "source"
+    /// Corresponds to the remote Viddler API field "add_time"
     /// </summary>
-    [XmlElement(ElementName = "source")]
-    public bool? Source
+    [XmlElement(ElementName = "add_time")]
+    public UnixTimeStamp? AddTime
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "profile_id"
+    /// Corresponds to the remote Viddler API field "add_timepoint"
     /// </summary>
-    [XmlElement(ElementName = "profile_id")]
-    public string ProfileId
+    [XmlElement(ElementName = "add_timepoint")]
+    public int? AddTimepoint
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "video_id"
+    /// Corresponds to the remote Viddler API field "comments_moderation"
     /// </summary>
-    [XmlElement(ElementName = "video_id")]
-    public string VideoId
+    [XmlElement(ElementName = "comments_moderation")]
+    public CommentsModeration CommentsModeration
     {
       get;
       set;
     }
 
     /// <summary>
-    /// Corresponds to the remote Viddler API field "encoding_progress"
+    /// Corresponds to the remote Viddler API field "video_reply"
     /// </summary>
-    [XmlElement(ElementName = "encoding_progress")]
-    public int? EncodingProgress
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "encoding_status"
-    /// </summary>
-    [XmlElement(ElementName = "encoding_status")]
-    public VideoFileEncodingStatus? EncodingStatus
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "flash"
-    /// </summary>
-    [XmlElement(ElementName = "flash")]
-    public VideoFileSourceStatus? Flash
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "iphone"
-    /// </summary>
-    [XmlElement(ElementName = "iphone")]
-    public VideoFileSourceStatus? IPhone
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "ipad"
-    /// </summary>
-    [XmlElement(ElementName = "ipad")]
-    public VideoFileSourceStatus? IPad
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// Corresponds to the remote Viddler API field "itunes"
-    /// </summary>
-    [XmlElement(ElementName = "itunes")]
-    public VideoFileSourceStatus? ITunes
+    [XmlElement(ElementName = "video_reply")]
+    public CommentsVideoReply VideoReply
     {
       get;
       set;
