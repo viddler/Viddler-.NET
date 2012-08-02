@@ -1,3 +1,10 @@
+#Changelog
+
+##August 2nd, 2012
+- Update to viddler.encoding.getStatus2 to fix an issue with "Instance validation error: 'not ready' is not a valid value for VideoStatus."
+
+#General Information
+
 Debug - binaries compiled using debug mode
 - ViddlerV2.dll - compiled .NET wrapper library.
 - ViddlerV2.pdb - debugging and project state information to help developers debug their applications, which reference the wrapper library.

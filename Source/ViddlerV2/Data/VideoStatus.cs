@@ -20,9 +20,9 @@ namespace Viddler.Data
     [XmlEnum(Name = "ready")]
     Ready,
     /// <summary>
-    /// Corresponds to the remote Viddler API enumerated value "not_ready"
+    /// Corresponds to the remote Viddler API enumerated value "not ready"
     /// </summary>
-    [XmlEnum(Name = "not_ready")]
+    [XmlEnum(Name = "not ready")]
     NotReady,
     /// <summary>
     /// Corresponds to the remote Viddler API enumerated value "deleted"

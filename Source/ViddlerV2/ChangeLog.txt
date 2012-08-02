@@ -4,3 +4,6 @@
 Version 3.9.0.0 (2012-05-20)
 - Bugfixes from previous release
 - Viddler API 2 version 3.9.0 compliant
+
+Version 3.9.0.1 (2012-08-01)
+- Bugfixes
