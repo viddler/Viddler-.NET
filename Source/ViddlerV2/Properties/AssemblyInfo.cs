@@ -18,6 +18,5 @@ using System.Security.Permissions;
 [assembly: AssemblyFileVersion("3.9.0.1")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: SecurityPermission(SecurityAction.RequestMinimum)]
 [assembly: Guid("63913371-c06f-4b28-8f8c-757beca0368d")]
 [assembly: AssemblyDefaultAlias("ViddlerV2.dll")]
