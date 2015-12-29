@@ -1,5 +1,9 @@
 #Changelog
 
+##December 29, 2015
+- Enabled SslProtocols Enumeration including TLS 1.2 (https://msdn.microsoft.com/en-us/library/system.security.authentication.sslprotocols(v=vs.110).aspx).
+- Updated for Framework 4.5.1
+
 ##August 2nd, 2012
 - Update to viddler.encoding.getStatus2 to fix an issue with "Instance validation error: 'not ready' is not a valid value for VideoStatus."
 
@@ -24,6 +28,7 @@ Release - binaries compiled using release mode (optimized for high performance)
 Source - source code of both, the wrapper library and demonstator application.
 
 Updates:
+	v1.2 - Updated for SslProtocols thru TLS 1.2
 	v1.1 - Updated project to Visual Studio 2010
 		 - Changed Viddler.Videos.GetByUser to provide parameter for Tags
 			- Added optional parameter "tags" to preserve backwards compatiblity without adding overload
