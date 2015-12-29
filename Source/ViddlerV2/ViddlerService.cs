@@ -153,6 +153,7 @@ namespace Viddler
     /// <remarks>Provide valid base URL, secure base URL and API key by setting .config file or by passing them manually to this instance.</remarks>
     public ViddlerService()
     {
+      ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
       ViddlerConfigurationSection settings = ViddlerConfigurationSection.Instance;
       if (settings != null)
       {
@@ -170,6 +171,7 @@ namespace Viddler
     /// <remarks>Provide valid base URL, secure base URL and API key by setting .config file or by passing them manually to this instance.</remarks>
     public ViddlerService(string baseUrl, string secureBaseUrl, string apiKey)
     {
+      ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
       this.BaseUrl = baseUrl;
       this.SecureBaseUrl = secureBaseUrl;
       this.ApiKey = apiKey;
