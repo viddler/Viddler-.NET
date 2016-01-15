@@ -477,17 +477,24 @@ namespace Viddler
       byte[] endBoundaryBytes = System.Text.Encoding.UTF8.GetBytes(string.Concat("\r\n--", boundary, "--\r\n"));
 
       List<byte> requestData = new List<byte>();
-      requestData.AddRange(boundaryBytes);
-      requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"key\"\r\n\r\n{0}", this.ApiKey)));
-      if (methodAttribute.IsSessionRequired)
-      {
-        requestData.AddRange(boundaryBytes);
-        requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"sessionid\"\r\n\r\n{0}", this.SessionId)));
-      }
+
+      // If we have endpoint uploadtoken that is ALL we send and we don't send session/apikey
+      // If we send session/apikey and NOT uploadtoken, Viddler will do a prepareupload behind the scenes and use that uploadtoken.  
+      // This is why allow_replace fails w/out an uploadtoken because their prepareupload does NOT have allow_replace set.
       if (endPoint != null && !string.IsNullOrEmpty(endPoint.Token))
       {
         requestData.AddRange(boundaryBytes);
-        requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"token\"\r\n\r\n{0}", endPoint.Token)));
+        requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"uploadtoken\"\r\n\r\n{0}", endPoint.Token)));
+      }
+      else
+      {
+        requestData.AddRange(boundaryBytes);
+        requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"key\"\r\n\r\n{0}", this.ApiKey)));
+        if (methodAttribute.IsSessionRequired)
+        {
+          requestData.AddRange(boundaryBytes);
+          requestData.AddRange(System.Text.Encoding.UTF8.GetBytes(string.Format(CultureInfo.InvariantCulture, "Content-Disposition: form-data; name=\"sessionid\"\r\n\r\n{0}", this.SessionId)));
+        }          
       }
 
       if (parameters != null && parameters.Keys.Count > 0)
