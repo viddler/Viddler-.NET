@@ -21,6 +21,7 @@ namespace Viddler.Data
 
     /// <summary>
     /// Corresponds to the remote Viddler API field "token"
+    /// This field will be sent back to Viddler as "uploadtoken" and sessionid/api_key should NOT be sent.
     /// </summary>
     [XmlElement(ElementName = "token")]
     public string Token

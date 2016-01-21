@@ -81,25 +81,37 @@ namespace Viddler.Videos
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.upload
     /// </summary>
-    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string fileName, Stream fileStream)
+    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string fileName, Stream fileStream, string videoid = null)
     {
-      Data.UploadEndPoint endPoint = this.PrepareUpload();
-      return this.Upload(title, tags, description, makePublic, fileName, fileStream, endPoint);
+      Data.UploadEndPoint endPoint = this.PrepareUpload(videoid);
+      return this.Upload(title, tags, description, makePublic, fileName, fileStream, endPoint, videoid);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.upload
     /// </summary>
-    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string fileName, Stream fileStream, Data.UploadEndPoint endPoint)
+    /// <param name="title"></param>
+    /// <param name="tags"></param>
+    /// <param name="description"></param>
+    /// <param name="makePublic"></param>
+    /// <param name="fileName"></param>
+    /// <param name="fileStream"></param>
+    /// <param name="endPoint">endPoint information to upload video to.  If this is blank, and new endpoint will be created for you</param>
+    /// <param name="videoid">Optional: VideoID to replace if you are trying to replace.</param>
+    /// <returns></returns>
+    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string fileName, Stream fileStream, Data.UploadEndPoint endPoint, string videoid = null)
     {
-      if (endPoint == null) endPoint = this.PrepareUpload();
+      if (endPoint == null) endPoint = this.PrepareUpload(videoid);
 
       StringDictionary parameters = new StringDictionary();
-      parameters.Add("title", title);
-      if (tags != null) parameters.Add("tags", tags);
-      if (description != null) parameters.Add("description", description);
-      if (makePublic.HasValue) parameters.Add("make_public", makePublic.Value ? "1" : "0");
-
+      if (!string.IsNullOrEmpty(videoid)) parameters.Add("video_id", videoid);
+      else
+      {
+         parameters.Add("title", title);
+         if (tags != null) parameters.Add("tags", tags);
+         if (description != null) parameters.Add("description", description);
+         if (makePublic.HasValue) parameters.Add("make_public", makePublic.Value ? "1" : "0");
+      }
       Data.Video video;
       if (fileStream != null && !fileStream.CanSeek)
       {
@@ -126,16 +138,16 @@ namespace Viddler.Videos
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.upload
     /// </summary>
-    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string localPath)
+    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string localPath, string videoid = null)
     {
-      Data.UploadEndPoint endPoint = this.PrepareUpload();
-      return this.Upload(title, tags, description, makePublic, localPath, endPoint);
+      Data.UploadEndPoint endPoint = this.PrepareUpload(videoid);
+      return this.Upload(title, tags, description, makePublic, localPath, endPoint, videoid);
     }
 
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.upload
     /// </summary>
-    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string localPath, Data.UploadEndPoint endPoint)
+    public Data.Video Upload(string title, string tags, string description, bool? makePublic, string localPath, Data.UploadEndPoint endPoint, string videoid = null)
     {
       Data.Video responseObject;
       FileInfo file = new FileInfo(localPath);
@@ -143,12 +155,12 @@ namespace Viddler.Videos
       {
         using (FileStream stream = file.OpenRead())
         {
-          responseObject = this.Upload(title, tags, description, makePublic, file.Name, stream, endPoint);
+          responseObject = this.Upload(title, tags, description, makePublic, file.Name, stream, endPoint, videoid);
         }
       }
       else
       {
-        responseObject = this.Upload(title, tags, description, makePublic, null, Stream.Null, endPoint);
+        responseObject = this.Upload(title, tags, description, makePublic, null, Stream.Null, endPoint, videoid);
       }
       return responseObject;
     }
@@ -156,9 +168,15 @@ namespace Viddler.Videos
     /// <summary>
     /// Calls the remote Viddler API method: viddler.videos.prepareUpload
     /// </summary>
-    public Data.UploadEndPoint PrepareUpload()
+    public Data.UploadEndPoint PrepareUpload(string video_id = null)
     {
-      return this.Service.ExecuteHttpRequest<Videos.PrepareUpload, Data.UploadEndPoint>(null);
+            StringDictionary parameters = new StringDictionary();
+            if (!string.IsNullOrEmpty(video_id))
+            {
+                parameters.Add("allow_replace", "1");
+            }
+
+            return this.Service.ExecuteHttpRequest<Videos.PrepareUpload, Data.UploadEndPoint>(parameters);
     }
 
     /// <summary>
