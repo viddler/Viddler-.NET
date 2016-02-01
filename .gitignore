@@ -30,3 +30,4 @@ _UpgradeReport_Files/
 *.trx
 *.jtconfig
 *.vsp
+.DS_Store
