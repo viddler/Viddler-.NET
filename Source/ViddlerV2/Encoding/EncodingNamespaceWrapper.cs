@@ -32,9 +32,15 @@ namespace Viddler.Encoding
     /// <summary>
     /// Calls the remote Viddler API method: viddler.encoding.getStatus2
     /// </summary>
-    public Data.VideoEncodingList GetStatus2()
+    public Data.VideoEncodingList GetStatus2(string videoId = null)
     {
-      return this.Service.ExecuteHttpRequest<Encoding.GetStatus2, Data.VideoEncodingList>(null);
+        StringDictionary parameters = null;
+        if (!string.IsNullOrEmpty(videoId))
+        {
+            parameters = new StringDictionary();
+            parameters.Add("video_id", videoId);
+        }
+        return this.Service.ExecuteHttpRequest<Encoding.GetStatus2, Data.VideoEncodingList>(parameters);
     }
 
     /// <summary>

@@ -41,6 +41,16 @@ namespace Viddler.Data
     }
 
     /// <summary>
+    /// Corresponds to the remote Viddler API field "total"
+    /// </summary>
+    [XmlElement(ElementName = "total")]
+    public int? Total
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
     /// Corresponds to the remote Viddler API field "playlist"
     /// </summary>
     [XmlElement(ElementName = "playlist")]
